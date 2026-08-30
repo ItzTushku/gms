@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+html,
+body,
+main {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #f4f7f9;
+}
+
+main {
+  min-height: 100vh;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  border: 0;
+  background: #ffffff;
+}
