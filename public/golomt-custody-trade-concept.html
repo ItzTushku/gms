@@ -1,0 +1,2420 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>golomt-custody-trade-concept.html</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe id="codex-visualization" sandbox="allow-scripts" scrolling="no" referrerpolicy="no-referrer" title="golomt-custody-trade-concept.html" data-srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en-US&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'&quot;&gt;
+&lt;title&gt;golomt-custody-trade-concept.html&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;(() =&gt; {
+  const root = document.documentElement;
+  const mediaQuery = globalThis.matchMedia(&quot;(prefers-color-scheme: dark)&quot;);
+  const apply = Reflect.apply;
+  const isArray = Array.isArray;
+  const parentWindow = globalThis.parent;
+  /**
+   * @param {object} prototype
+   * @param {string} property
+   */
+  const getPrototypeGetter = (prototype, property) =&gt; {
+    // oxlint-disable-next-line typescript/unbound-method -- invoked through captured Reflect.apply
+    const getter = Object.getOwnPropertyDescriptor(prototype, property)?.get;
+    if (getter == null) {
+      throw new Error(`Missing ${property} getter`);
+    }
+    return getter;
+  };
+  const getMessageData = getPrototypeGetter(MessageEvent.prototype, &quot;data&quot;);
+  const getMessagePorts = getPrototypeGetter(MessageEvent.prototype, &quot;ports&quot;);
+  const getMessageSource = getPrototypeGetter(MessageEvent.prototype, &quot;source&quot;);
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const addHostMessageListener = MessagePort.prototype.addEventListener;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const postHostMessage = MessagePort.prototype.postMessage;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const startHostPort = MessagePort.prototype.start;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const stopMessagePropagation = Event.prototype.stopImmediatePropagation;
+  /** @type {MessagePort | null} */
+  let hostPort = null;
+  const postToHost = (type, payload) =&gt; {
+    if (hostPort != null) {
+      apply(postHostMessage, hostPort, [{ type, ...payload }]);
+    }
+  };
+  const openExternal = ({ href }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;open-external&quot;, { href });
+    }
+  };
+  const sendFollowUpMessage = ({ context, prompt, title }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;follow-up&quot;, { context, prompt, title });
+    }
+    return Promise.resolve();
+  };
+  const syncTheme = () =&gt; {
+    const theme = mediaQuery.matches ? &quot;dark&quot; : &quot;light&quot;;
+    root.dataset.theme = theme;
+    globalThis.openai = {
+      ...globalThis.openai,
+      openExternal,
+      sendFollowUpMessage,
+      theme,
+      visualizationStyleVariables: {},
+      visualizationTheme: theme,
+    };
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: globalThis.openai },
+      }),
+    );
+  };
+  const sendHeight = () =&gt; {
+    postToHost(&quot;height&quot;, {
+      height: Math.ceil(
+        Math.max(
+          document.body.scrollHeight,
+          document.body.getBoundingClientRect().height,
+        ),
+      ),
+    });
+  };
+
+  globalThis.addEventListener(
+    &quot;message&quot;,
+    (event) =&gt; {
+      const data = apply(getMessageData, event, []);
+      const ports = apply(getMessagePorts, event, []);
+      const source = apply(getMessageSource, event, []);
+      if (
+        source !== parentWindow ||
+        typeof data !== &quot;object&quot; ||
+        data?.type !== &quot;codex-visualization-initialize&quot; ||
+        !isArray(ports) ||
+        ports.length !== 1
+      ) {
+        return;
+      }
+      apply(stopMessagePropagation, event, []);
+      const nextHostPort = ports[0];
+      try {
+        apply(addHostMessageListener, nextHostPort, [
+          &quot;message&quot;,
+          (event) =&gt; {
+            const data = apply(getMessageData, event, []);
+            if (typeof data === &quot;object&quot; &amp;&amp; data?.type === &quot;measure&quot;) {
+              sendHeight();
+            }
+          },
+        ]);
+        apply(startHostPort, nextHostPort, []);
+      } catch {
+        return;
+      }
+      hostPort = nextHostPort;
+      sendHeight();
+    },
+    { capture: true },
+  );
+  document.currentScript?.remove();
+  mediaQuery.addEventListener(&quot;change&quot;, syncTheme);
+  globalThis.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.defaultPrevented) {
+      return;
+    }
+    let element = null;
+    if (event.target instanceof globalThis.Element) {
+      element = event.target;
+    } else if (event.target instanceof globalThis.Node) {
+      element = event.target.parentElement;
+    }
+    const link = element?.closest(&quot;a[href]&quot;);
+    const href = link?.getAttribute(&quot;href&quot;);
+    if (href == null) {
+      return;
+    }
+    if (href.startsWith(&quot;#&quot;)) {
+      let id;
+      try {
+        id = decodeURIComponent(href.slice(1));
+      } catch {
+        return;
+      }
+      const target = id.length === 0 ? root : document.getElementById(id);
+      if (
+        target == null ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      event.preventDefault();
+      postToHost(&quot;scroll-to&quot;, {
+        top: target.getBoundingClientRect().top + globalThis.scrollY,
+      });
+      return;
+    }
+    event.preventDefault();
+    openExternal({ href });
+  });
+  new ResizeObserver(sendHeight).observe(document.body);
+  syncTheme();
+})();
+&lt;/script&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress {
+  display: flex;
+  height: 6px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 6px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;script&gt;
+(() =&gt; {
+  const root = document.documentElement;
+  const initialGlobals =
+    globalThis.__codexVisualizationInitialGlobals ?? globalThis.openai;
+  delete globalThis.__codexVisualizationInitialGlobals;
+  let appliedProperties = [];
+
+  const applyHostStyleVariables = (styleVariables) =&gt; {
+    if (styleVariables == null || typeof styleVariables !== &quot;object&quot;) {
+      return;
+    }
+    for (const property of appliedProperties) {
+      root.style.removeProperty(property);
+    }
+    appliedProperties = [];
+    for (const [property, value] of Object.entries(styleVariables)) {
+      if (property.startsWith(&quot;--&quot;) &amp;&amp; typeof value === &quot;string&quot;) {
+        root.style.setProperty(property, value);
+        appliedProperties.push(property);
+      }
+    }
+  };
+
+  const syncHostStyles = (globals) =&gt; {
+    applyHostStyleVariables(globals?.visualizationStyleVariables);
+  };
+
+  syncHostStyles(initialGlobals);
+  globalThis.addEventListener(&quot;openai:set_globals&quot;, (event) =&gt; {
+    syncHostStyles(event.detail?.globals);
+  });
+})();
+&lt;/script&gt;
+
+&lt;div id=&quot;golomt-trade-concept&quot; aria-label=&quot;Golomt Custody international trading page concept&quot;&gt;
+  &lt;style&gt;
+    #golomt-trade-concept {
+      color-scheme: dark;
+      background: #101a2a;
+      color: #e9eef7;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+      font-size: 13px;
+      line-height: 1.3;
+      letter-spacing: -.01em;
+      overflow: hidden;
+    }
+    #golomt-trade-concept * { box-sizing: border-box; }
+    #golomt-trade-concept button,
+    #golomt-trade-concept input,
+    #golomt-trade-concept select { font: inherit; }
+    #golomt-trade-concept button { cursor: pointer; }
+    #golomt-trade-concept .gc-shell { min-width: 320px; background: #101a2a; }
+    #golomt-trade-concept .gc-top {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0 26px;
+      border-bottom: 1px solid #263449;
+      background: #121e30;
+    }
+    #golomt-trade-concept .gc-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 198px;
+      font-weight: 650;
+      font-size: 16px;
+      letter-spacing: .02em;
+      color: #f8fafc;
+    }
+    #golomt-trade-concept .gc-mark {
+      width: 23px;
+      height: 23px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px 7px 7px 2px;
+      transform: rotate(45deg);
+      background: #08aeb1;
+      color: #0d1827;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    #golomt-trade-concept .gc-mark &gt; span { transform: rotate(-45deg); }
+    #golomt-trade-concept .gc-brand em { color: #89a0bc; font-size: 11px; font-style: normal; font-weight: 550; }
+    #golomt-trade-concept .gc-nav,
+    #golomt-trade-concept .gc-product-nav { display: flex; align-items: stretch; gap: 2px; white-space: nowrap; }
+    #golomt-trade-concept .gc-nav button,
+    #golomt-trade-concept .gc-product-nav button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: #9eafc4;
+      padding: 20px 10px 17px;
+      position: relative;
+      font-weight: 520;
+    }
+    #golomt-trade-concept .gc-nav button[aria-current=&quot;page&quot;] { color: #eaf8f9; }
+    #golomt-trade-concept .gc-nav button[aria-current=&quot;page&quot;]::after {
+      content: &quot;&quot;;
+      position: absolute;
+      height: 2px;
+      left: 10px;
+      right: 10px;
+      bottom: 0;
+      background: #18c1c1;
+    }
+    #golomt-trade-concept .gc-top-actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+    #golomt-trade-concept .gc-search {
+      color: #8192a9;
+      width: 205px;
+      padding: 8px 11px;
+      border: 1px solid #33435a;
+      border-radius: 6px;
+      background: #17253a;
+    }
+    #golomt-trade-concept .gc-avatar {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #36466b;
+      color: #dce8ff;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    #golomt-trade-concept .gc-subbar {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0 26px;
+      gap: 22px;
+      border-bottom: 1px solid #263449;
+      background: #0e1726;
+    }
+    #golomt-trade-concept .gc-product-nav { gap: 4px; }
+    #golomt-trade-concept .gc-product-nav button { padding: 15px 11px 13px; font-size: 12px; }
+    #golomt-trade-concept .gc-product-nav button.is-active { color: #f1f8fb; }
+    #golomt-trade-concept .gc-product-nav button.is-active::after {
+      content: &quot;&quot;; position: absolute; left: 11px; right: 11px; bottom: 0; height: 2px; background: #d7a64a;
+    }
+    #golomt-trade-concept .gc-context { margin-left: auto; color: #a2b1c4; font-size: 11px; }
+    #golomt-trade-concept .gc-context strong { color: #d9e7f3; font-weight: 650; }
+    #golomt-trade-concept .gc-main { padding: 18px 26px 24px; max-width: 1536px; margin: 0 auto; }
+    #golomt-trade-concept .gc-breadcrumb { color: #8397b0; font-size: 11px; margin-bottom: 13px; }
+    #golomt-trade-concept .gc-breadcrumb b { color: #d1deec; font-weight: 600; }
+    #golomt-trade-concept .gc-account-line {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    #golomt-trade-concept .gc-account-item {
+      background: #162338;
+      border: 1px solid #2b3b52;
+      padding: 8px 12px;
+      min-width: 150px;
+      border-radius: 5px;
+    }
+    #golomt-trade-concept .gc-account-item .label { color: #8295ad; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
+    #golomt-trade-concept .gc-account-item .value { color: #f0f5fb; display: block; margin-top: 3px; font-weight: 650; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-account-item .delta { color: #45c998; font-size: 11px; margin-left: 4px; }
+    #golomt-trade-concept .gc-account-item.gc-wide { min-width: 220px; }
+    #golomt-trade-concept .gc-market-chip { margin-left: auto; align-self: center; color: #9db2c9; font-size: 11px; }
+    #golomt-trade-concept .gc-live { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: #39c98f; box-shadow: 0 0 0 3px rgba(57,201,143,.12); }
+    #golomt-trade-concept .gc-grid { display: grid; grid-template-columns: minmax(0, 1fr) 278px; gap: 14px; }
+    #golomt-trade-concept .gc-workspace {
+      min-width: 0;
+      border: 1px solid #2b3c53;
+      background: #121f32;
+    }
+    #golomt-trade-concept .gc-symbol-row {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      border-bottom: 1px solid #2a3a50;
+    }
+    #golomt-trade-concept .gc-symbol-search {
+      width: 192px;
+      padding: 9px 10px;
+      border: 1px solid #3b4d65;
+      border-radius: 3px;
+      color: #f0f5fa;
+      background: #0f1a2a;
+    }
+    #golomt-trade-concept .gc-symbol-search::placeholder { color: #7f91a8; }
+    #golomt-trade-concept .gc-instrument { min-width: 205px; }
+    #golomt-trade-concept .gc-ticker { color: #f4f6fa; font-weight: 760; font-size: 17px; letter-spacing: .01em; }
+    #golomt-trade-concept .gc-name { color: #9bacc0; margin-left: 7px; font-size: 12px; }
+    #golomt-trade-concept .gc-venue { color: #7188a4; font-size: 10px; margin-top: 3px; text-transform: uppercase; letter-spacing: .06em; }
+    #golomt-trade-concept .gc-quote { padding-left: 13px; border-left: 1px solid #2c3b51; }
+    #golomt-trade-concept .gc-quote .price { font-size: 23px; color: #fbfdff; line-height: 1; font-weight: 680; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-quote .price-note { color: #46ce9b; font-size: 11px; margin-top: 4px; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-quote .price-note.negative { color: #f18388; }
+    #golomt-trade-concept .gc-symbol-actions { margin-left: auto; display: flex; align-items: center; gap: 7px; }
+    #golomt-trade-concept .gc-symbol-actions button,
+    #golomt-trade-concept .gc-asset-chip {
+      border: 1px solid #38506c;
+      background: #17273d;
+      color: #c5d3e3;
+      border-radius: 3px;
+      padding: 7px 9px;
+      font-size: 11px;
+    }
+    #golomt-trade-concept .gc-symbol-actions button:hover,
+    #golomt-trade-concept .gc-asset-chip:hover { border-color: #579aaf; color: #effbfc; }
+    #golomt-trade-concept .gc-content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; }
+    #golomt-trade-concept .gc-chart-area { min-width: 0; border-right: 1px solid #2a3a50; }
+    #golomt-trade-concept .gc-chart-toolbar {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #29394f;
+      padding: 0 12px;
+      color: #9dafc5;
+    }
+    #golomt-trade-concept .gc-toolbar-label { color: #d7e2ee; font-weight: 620; }
+    #golomt-trade-concept .gc-toolbar-rule { width: 1px; height: 18px; background: #314158; }
+    #golomt-trade-concept .gc-tool { padding: 5px 6px; border: 0; color: #96aac2; background: transparent; border-radius: 3px; }
+    #golomt-trade-concept .gc-tool.is-selected { background: #233950; color: #dff9fb; }
+    #golomt-trade-concept .gc-chart-toolbar .gc-save { margin-left: auto; color: #9fbed3; }
+    #golomt-trade-concept .gc-chart-wrap { padding: 14px 16px 7px; background: #101c2e; }
+    #golomt-trade-concept .gc-chart-meta { display: flex; justify-content: space-between; color: #90a4bd; font-size: 10px; margin-bottom: 7px; }
+    #golomt-trade-concept .gc-chart-meta strong { color: #e4ecf4; font-size: 12px; font-weight: 600; }
+    #golomt-trade-concept .gc-chart { width: 100%; height: 276px; display: block; overflow: visible; }
+    #golomt-trade-concept .gc-chart text { font-family: inherit; font-size: 9px; fill: #7890ab; }
+    #golomt-trade-concept .gc-range-row { display: flex; align-items: center; gap: 5px; padding: 8px 16px 11px; color: #99adc4; }
+    #golomt-trade-concept .gc-range-row button { border: 0; background: transparent; color: inherit; padding: 3px 6px; font-size: 11px; }
+    #golomt-trade-concept .gc-range-row button.is-selected { color: #f8c66d; border-bottom: 1px solid #d7a64a; }
+    #golomt-trade-concept .gc-range-row .tz { margin-left: auto; font-size: 10px; color: #748aa3; }
+    #golomt-trade-concept .gc-side-data { padding: 0; background: #121e30; }
+    #golomt-trade-concept .gc-data-section { padding: 13px 14px; border-bottom: 1px solid #2a3a50; }
+    #golomt-trade-concept .gc-data-heading { display: flex; justify-content: space-between; color: #96aac2; font-size: 10px; text-transform: uppercase; letter-spacing: .065em; margin-bottom: 10px; }
+    #golomt-trade-concept .gc-data-heading strong { color: #dce7f2; font-weight: 650; }
+    #golomt-trade-concept .gc-book { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-book td { padding: 4px 0; font-size: 11px; }
+    #golomt-trade-concept .gc-book td:nth-child(1) { color: #6f849f; }
+    #golomt-trade-concept .gc-book td:nth-child(2) { text-align: right; color: #ef898d; }
+    #golomt-trade-concept .gc-book td:nth-child(3) { text-align: right; color: #afc1d4; }
+    #golomt-trade-concept .gc-book.bid td:nth-child(2) { color: #44c99a; }
+    #golomt-trade-concept .gc-spread td { padding: 7px 0 !important; border-top: 1px solid #2e4056; border-bottom: 1px solid #2e4056; color: #dfebf4 !important; font-weight: 630; font-size: 11px; }
+    #golomt-trade-concept .gc-spread td &gt; span { display: inline-block; }
+    #golomt-trade-concept .gc-spread td &gt; span:last-child { float: right; }
+    #golomt-trade-concept .gc-data-list { display: grid; grid-template-columns: 1fr auto; gap: 7px 15px; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-data-list dt { color: #8194ac; }
+    #golomt-trade-concept .gc-data-list dd { margin: 0; text-align: right; color: #dce6f0; }
+    #golomt-trade-concept .gc-position { background: #17273a; border-left: 2px solid #d7a64a; padding: 9px 10px; }
+    #golomt-trade-concept .gc-position .holdings { display: flex; justify-content: space-between; color: #eff4f9; font-weight: 650; }
+    #golomt-trade-concept .gc-position p { color: #94a7bf; font-size: 10px; margin: 5px 0 0; }
+    #golomt-trade-concept .gc-order-form { border-top: 1px solid #2b3d54; padding: 14px 16px 15px; background: #142237; }
+    #golomt-trade-concept .gc-order-title { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 11px; }
+    #golomt-trade-concept .gc-order-title strong { color: #f0f4f8; font-size: 13px; }
+    #golomt-trade-concept .gc-order-title span { color: #8297b0; font-size: 10px; }
+    #golomt-trade-concept .gc-action-switch { display: flex; width: fit-content; margin-bottom: 11px; }
+    #golomt-trade-concept .gc-action-switch button { min-width: 83px; padding: 8px 14px; border: 1px solid #4b5e75; background: #192b43; color: #aebdce; }
+    #golomt-trade-concept .gc-action-switch button:first-child { border-radius: 3px 0 0 3px; }
+    #golomt-trade-concept .gc-action-switch button:last-child { border-radius: 0 3px 3px 0; border-left: 0; }
+    #golomt-trade-concept .gc-action-switch button.is-buy { background: #087c6b; color: #eafffb; border-color: #159d88; }
+    #golomt-trade-concept .gc-action-switch button.is-sell { background: #a74a52; color: #fffafa; border-color: #c9636a; }
+    #golomt-trade-concept .gc-form-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 9px; }
+    #golomt-trade-concept .gc-field label { color: #91a4ba; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 5px; }
+    #golomt-trade-concept .gc-field input,
+    #golomt-trade-concept .gc-field select { width: 100%; background: #0f1a2a; color: #edf3f8; border: 1px solid #3c4f69; border-radius: 2px; padding: 8px 8px; }
+    #golomt-trade-concept .gc-form-foot { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+    #golomt-trade-concept .gc-estimate { color: #a3b6cb; font-size: 11px; }
+    #golomt-trade-concept .gc-estimate strong { color: #eff5fa; font-variant-numeric: tabular-nums; font-weight: 620; }
+    #golomt-trade-concept .gc-estimate .cash-note { color: #6dcead; display: block; margin-top: 3px; }
+    #golomt-trade-concept .gc-preview { margin-left: auto; border: 1px solid #52708d; background: transparent; color: #d7e5f0; padding: 9px 14px; border-radius: 3px; }
+    #golomt-trade-concept .gc-submit { border: 1px solid #dfb05a; background: #d7a64a; color: #152236; padding: 9px 17px; border-radius: 3px; font-weight: 760; }
+    #golomt-trade-concept .gc-rail { display: flex; flex-direction: column; gap: 14px; }
+    #golomt-trade-concept .gc-rail-card { border: 1px solid #2b3c53; background: #152338; padding: 14px; }
+    #golomt-trade-concept .gc-rail-heading { display: flex; align-items: center; justify-content: space-between; color: #eaf1f7; font-size: 12px; font-weight: 650; margin-bottom: 12px; }
+    #golomt-trade-concept .gc-rail-heading span { color: #7e96af; font-size: 10px; font-weight: 520; }
+    #golomt-trade-concept .gc-cash-line { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #26374e; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-cash-line:last-child { border-bottom: 0; }
+    #golomt-trade-concept .gc-cash-line .currency { color: #9cb0c5; }
+    #golomt-trade-concept .gc-cash-line .amount { color: #e8eff6; font-weight: 610; }
+    #golomt-trade-concept .gc-cash-line .amount small { color: #7e92ab; font-weight: 500; }
+    #golomt-trade-concept .gc-custody-status { display: flex; gap: 10px; align-items: flex-start; padding: 10px; background: #162a3d; border-left: 2px solid #17aeb0; }
+    #golomt-trade-concept .gc-custody-status i { color: #4fdbcb; font-style: normal; font-size: 16px; line-height: 1; }
+    #golomt-trade-concept .gc-custody-status strong { display: block; color: #e5f8f7; font-size: 11px; }
+    #golomt-trade-concept .gc-custody-status p { margin: 3px 0 0; color: #98b7c8; font-size: 10px; }
+    #golomt-trade-concept .gc-mover { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #293a51; }
+    #golomt-trade-concept .gc-mover:last-child { border-bottom: 0; }
+    #golomt-trade-concept .gc-mover b { color: #ebf1f6; font-size: 11px; }
+    #golomt-trade-concept .gc-mover span { color: #8ca0b7; font-size: 10px; }
+    #golomt-trade-concept .gc-mover em { color: #48ca9c; font-style: normal; font-variant-numeric: tabular-nums; font-size: 11px; }
+    #golomt-trade-concept .gc-bottom { border: 1px solid #2b3c53; background: #121f32; margin-top: 14px; }
+    #golomt-trade-concept .gc-tabs { display: flex; align-items: stretch; border-bottom: 1px solid #2b3c53; padding: 0 14px; }
+    #golomt-trade-concept .gc-tabs button { background: transparent; border: 0; color: #94a8c0; padding: 12px 13px 10px; position: relative; }
+    #golomt-trade-concept .gc-tabs button.is-active { color: #edf7fb; }
+    #golomt-trade-concept .gc-tabs button.is-active::after { content: &quot;&quot;; position: absolute; left: 13px; right: 13px; bottom: 0; height: 2px; background: #18bab9; }
+    #golomt-trade-concept .gc-report-action { margin-left: auto; display: flex; align-items: center; color: #a9bfd2; font-size: 11px; }
+    #golomt-trade-concept .gc-report-action button { border: 1px solid #3d5875; background: #17283f; color: #d5e2ed; margin-left: 8px; padding: 6px 9px; border-radius: 3px; }
+    #golomt-trade-concept .gc-table-wrap { overflow-x: auto; }
+    #golomt-trade-concept .gc-table { width: 100%; min-width: 710px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-table th { color: #8397af; background: #142238; padding: 9px 13px; text-align: left; text-transform: uppercase; letter-spacing: .065em; font-size: 9px; font-weight: 600; }
+    #golomt-trade-concept .gc-table td { padding: 10px 13px; border-top: 1px solid #283951; color: #dbe5ef; }
+    #golomt-trade-concept .gc-table td:not(:first-child), #golomt-trade-concept .gc-table th:not(:first-child) { text-align: right; }
+    #golomt-trade-concept .gc-table td:first-child strong { color: #f1f6fb; }
+    #golomt-trade-concept .gc-tag { display: inline-block; padding: 3px 6px; border-radius: 2px; background: rgba(41,195,147,.13); color: #58d3a7; font-size: 10px; font-weight: 650; }
+    #golomt-trade-concept .gc-tag.pending { background: rgba(215,166,74,.13); color: #f0c66f; }
+    #golomt-trade-concept .gc-status-green { color: #52d2a5; }
+    #golomt-trade-concept .gc-status-red { color: #ed8990; }
+    #golomt-trade-concept .gc-footnote { display: flex; justify-content: space-between; color: #72879f; font-size: 10px; padding: 9px 0 0; }
+    #golomt-trade-concept .gc-footnote b { color: #a3b5c9; font-weight: 570; }
+
+    /* Light-mode revision */
+    #golomt-trade-concept { color-scheme: light; background: #f4f7f9; color: #1b2c3d; }
+    #golomt-trade-concept .gc-shell { background: #f4f7f9; }
+    #golomt-trade-concept .gc-top { position: relative; gap: 12px; border-bottom-color: #dce5ec; background: #ffffff; }
+    #golomt-trade-concept .gc-brand { min-width: 164px; color: #183247; font-size: 14px; }
+    #golomt-trade-concept .gc-brand em { color: #718399; }
+    #golomt-trade-concept .gc-mark { background: #079da3; color: #ffffff; }
+    #golomt-trade-concept .gc-nav { position: absolute; left: 50%; top: 0; height: 100%; transform: translateX(-50%); gap: 1px; }
+    #golomt-trade-concept .gc-nav button { color: #63758a; padding: 20px 7px 17px; font-size: 11px; }
+    #golomt-trade-concept .gc-nav button[aria-current=&quot;page&quot;] { color: #123f55; }
+    #golomt-trade-concept .gc-nav button[aria-current=&quot;page&quot;]::after { background: #05999d; }
+    #golomt-trade-concept .gc-top-actions { margin-left: auto; }
+    #golomt-trade-concept .gc-search { color: #617388; border-color: #ccd8e1; background: #f8fafb; }
+    #golomt-trade-concept .gc-avatar { background: #e1edf3; color: #174560; }
+    #golomt-trade-concept .gc-subbar { border-bottom-color: #dce5ec; background: #f8fafb; }
+    #golomt-trade-concept .gc-product-nav button { color: #6c7e90; }
+    #golomt-trade-concept .gc-product-nav button.is-active { color: #163c53; }
+    #golomt-trade-concept .gc-product-nav button.is-active::after { background: #b7791f; }
+    #golomt-trade-concept .gc-context { color: #74859a; }
+    #golomt-trade-concept .gc-context strong { color: #25445a; }
+    #golomt-trade-concept .gc-breadcrumb { color: #74869a; }
+    #golomt-trade-concept .gc-breadcrumb b { color: #29465a; }
+    #golomt-trade-concept .gc-account-item { border-color: #d9e3ea; background: #ffffff; }
+    #golomt-trade-concept .gc-account-item .label { color: #7b8b9c; }
+    #golomt-trade-concept .gc-account-item .value { color: #1b3448; }
+    #golomt-trade-concept .gc-account-item .delta { color: #168c69; }
+    #golomt-trade-concept .gc-market-chip { color: #657d91; }
+    #golomt-trade-concept .gc-live { background: #20a678; box-shadow: 0 0 0 3px rgba(32,166,120,.12); }
+    #golomt-trade-concept .gc-workspace, #golomt-trade-concept .gc-rail-card, #golomt-trade-concept .gc-bottom { border-color: #d9e4eb; background: #ffffff; }
+    #golomt-trade-concept .gc-symbol-row { border-bottom-color: #dfe7ed; }
+    #golomt-trade-concept .gc-symbol-search { border-color: #c7d3dd; color: #173247; background: #fbfcfd; }
+    #golomt-trade-concept .gc-symbol-search::placeholder { color: #8293a5; }
+    #golomt-trade-concept .gc-ticker { color: #173147; }
+    #golomt-trade-concept .gc-name { color: #65788c; }
+    #golomt-trade-concept .gc-venue { color: #718aa3; }
+    #golomt-trade-concept .gc-quote { border-left-color: #dce5ec; }
+    #golomt-trade-concept .gc-quote .price { color: #153247; }
+    #golomt-trade-concept .gc-quote .price-note { color: #168c69; }
+    #golomt-trade-concept .gc-quote .price-note.negative { color: #bf4e59; }
+    #golomt-trade-concept .gc-symbol-actions button, #golomt-trade-concept .gc-asset-chip { border-color: #cbd8e1; background: #f7fafb; color: #4d6578; }
+    #golomt-trade-concept .gc-symbol-actions button:hover, #golomt-trade-concept .gc-asset-chip:hover { border-color: #4b9ba3; color: #174860; }
+    #golomt-trade-concept .gc-chart-area { border-right-color: #dfe7ed; }
+    #golomt-trade-concept .gc-chart-toolbar { border-bottom-color: #dfe7ed; color: #677b8e; }
+    #golomt-trade-concept .gc-toolbar-label { color: #294256; }
+    #golomt-trade-concept .gc-toolbar-rule { background: #d4dfe7; }
+    #golomt-trade-concept .gc-tool { color: #64798e; }
+    #golomt-trade-concept .gc-tool.is-selected { background: #e5f3f4; color: #14616a; }
+    #golomt-trade-concept .gc-chart-toolbar .gc-save { color: #4f7e8a; }
+    #golomt-trade-concept .gc-chart-wrap { background: #ffffff; }
+    #golomt-trade-concept .gc-chart-meta { color: #71869b; }
+    #golomt-trade-concept .gc-chart-meta strong { color: #1d384d; }
+    #golomt-trade-concept .gc-chart text { fill: #71879b; }
+    #golomt-trade-concept .gc-chart &gt; g:first-of-type line { stroke: #e1e8ed; }
+    #golomt-trade-concept .gc-chart [data-current-label] { fill: #17384c; }
+    #golomt-trade-concept .gc-range-row { color: #667c90; }
+    #golomt-trade-concept .gc-range-row button.is-selected { color: #9e6513; border-bottom-color: #b7791f; }
+    #golomt-trade-concept .gc-range-row .tz { color: #8092a3; }
+    #golomt-trade-concept .gc-side-data { background: #fbfcfd; }
+    #golomt-trade-concept .gc-data-section { border-bottom-color: #e0e7ed; }
+    #golomt-trade-concept .gc-data-heading { color: #74879a; }
+    #golomt-trade-concept .gc-data-heading strong { color: #2b4559; }
+    #golomt-trade-concept .gc-book td:nth-child(1) { color: #6f8496; }
+    #golomt-trade-concept .gc-book td:nth-child(2) { color: #bd5560; }
+    #golomt-trade-concept .gc-book td:nth-child(3) { color: #5f768b; }
+    #golomt-trade-concept .gc-book.bid td:nth-child(2) { color: #148866; }
+    #golomt-trade-concept .gc-spread td { border-color: #dce6ec; color: #405b6c !important; }
+    #golomt-trade-concept .gc-data-list dt { color: #75899b; }
+    #golomt-trade-concept .gc-data-list dd { color: #2a4659; }
+    #golomt-trade-concept .gc-position { background: #f6f2e9; border-left-color: #b7791f; }
+    #golomt-trade-concept .gc-position .holdings { color: #2e4b5d; }
+    #golomt-trade-concept .gc-position p { color: #71859a; }
+    #golomt-trade-concept .gc-order-form { border-top-color: #dce5ec; background: #f9fbfc; }
+    #golomt-trade-concept .gc-order-title strong { color: #203c50; }
+    #golomt-trade-concept .gc-order-title span { color: #788c9d; }
+    #golomt-trade-concept .gc-action-switch button { border-color: #bdced9; background: #f5f8fa; color: #617689; }
+    #golomt-trade-concept .gc-action-switch button.is-buy { background: #087e70; color: #ffffff; border-color: #087e70; }
+    #golomt-trade-concept .gc-action-switch button.is-sell { background: #b94e57; color: #ffffff; border-color: #b94e57; }
+    #golomt-trade-concept .gc-field label { color: #718599; }
+    #golomt-trade-concept .gc-field input, #golomt-trade-concept .gc-field select { background: #ffffff; color: #1d384c; border-color: #c9d6df; }
+    #golomt-trade-concept .gc-estimate { color: #6d8193; }
+    #golomt-trade-concept .gc-estimate strong { color: #294658; }
+    #golomt-trade-concept .gc-estimate .cash-note { color: #168c69; }
+    #golomt-trade-concept .gc-preview { border-color: #a9becb; color: #315165; }
+    #golomt-trade-concept .gc-submit { border-color: #b7791f; background: #b7791f; color: #ffffff; }
+    #golomt-trade-concept .gc-rail-heading { color: #29455a; }
+    #golomt-trade-concept .gc-rail-heading span { color: #788c9d; }
+    #golomt-trade-concept .gc-cash-line { border-bottom-color: #e0e7ed; }
+    #golomt-trade-concept .gc-cash-line .currency { color: #6d8294; }
+    #golomt-trade-concept .gc-cash-line .amount { color: #254357; }
+    #golomt-trade-concept .gc-cash-line .amount small { color: #7e91a0; }
+    #golomt-trade-concept .gc-custody-status { background: #eef7f6; border-left-color: #079da3; }
+    #golomt-trade-concept .gc-custody-status i { color: #07898f; }
+    #golomt-trade-concept .gc-custody-status strong { color: #295164; }
+    #golomt-trade-concept .gc-custody-status p { color: #638194; }
+    #golomt-trade-concept .gc-mover { border-bottom-color: #e0e7ed; }
+    #golomt-trade-concept .gc-mover b { color: #29465a; }
+    #golomt-trade-concept .gc-mover span { color: #71869a; }
+    #golomt-trade-concept .gc-mover em { color: #168c69; }
+    #golomt-trade-concept .gc-tabs { border-bottom-color: #dbe5eb; }
+    #golomt-trade-concept .gc-tabs button { color: #6d8295; }
+    #golomt-trade-concept .gc-tabs button.is-active { color: #1b465a; }
+    #golomt-trade-concept .gc-tabs button.is-active::after { background: #079da3; }
+    #golomt-trade-concept .gc-report-action { color: #6a8193; }
+    #golomt-trade-concept .gc-report-action button { border-color: #c7d6df; background: #f8fafb; color: #31556a; }
+    #golomt-trade-concept .gc-table th { color: #72869a; background: #f7f9fb; }
+    #golomt-trade-concept .gc-table td { border-top-color: #e0e7ed; color: #2d495c; }
+    #golomt-trade-concept .gc-table td:first-child strong { color: #244357; }
+    #golomt-trade-concept .gc-tag { background: #e6f5ee; color: #198565; }
+    #golomt-trade-concept .gc-tag.pending { background: #fbf1dc; color: #9f6818; }
+    #golomt-trade-concept .gc-status-green { color: #168c69; }
+    #golomt-trade-concept .gc-status-red { color: #b94e57; }
+    #golomt-trade-concept .gc-footnote { color: #788b9c; }
+    #golomt-trade-concept .gc-footnote b { color: #536d7e; }
+
+    /* Primary information architecture */
+    #golomt-trade-concept .gc-nontrade-title { display: none; color: #36576b; font-size: 12px; font-weight: 650; }
+    #golomt-trade-concept [data-view-panel] { display: none; }
+    #golomt-trade-concept .gc-shell[data-active-view=&quot;home&quot;] [data-view-panel=&quot;home&quot;],
+    #golomt-trade-concept .gc-shell[data-active-view=&quot;watchlist&quot;] [data-view-panel=&quot;watchlist&quot;],
+    #golomt-trade-concept .gc-shell[data-active-view=&quot;holdings&quot;] [data-view-panel=&quot;holdings&quot;],
+    #golomt-trade-concept .gc-shell[data-active-view=&quot;reports&quot;] [data-view-panel=&quot;reports&quot;] { display: block; }
+    #golomt-trade-concept .gc-shell[data-active-view]:not([data-active-view=&quot;trade&quot;]) .gc-trade-only { display: none !important; }
+    #golomt-trade-concept .gc-shell[data-active-view=&quot;trade&quot;] .gc-nontrade-title { display: none; }
+    #golomt-trade-concept .gc-shell[data-active-view]:not([data-active-view=&quot;trade&quot;]) .gc-nontrade-title { display: block; }
+    #golomt-trade-concept .gc-page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    #golomt-trade-concept .gc-page-head h1 { margin: 0; color: #18384d; font-size: 21px; line-height: 1.15; font-weight: 700; letter-spacing: -.025em; }
+    #golomt-trade-concept .gc-page-head p { margin: 5px 0 0; color: #718598; font-size: 11px; }
+    #golomt-trade-concept .gc-page-asof { color: #7790a2; font-size: 10px; white-space: nowrap; }
+    #golomt-trade-concept .gc-home-top { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .8fr); gap: 14px; }
+    #golomt-trade-concept .gc-home-surface { border: 1px solid #d9e4eb; background: #ffffff; }
+    #golomt-trade-concept .gc-value-panel { padding: 17px 17px 8px; }
+    #golomt-trade-concept .gc-value-kicker { color: #71879a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    #golomt-trade-concept .gc-value-line { display: flex; align-items: baseline; gap: 10px; margin: 5px 0 12px; }
+    #golomt-trade-concept .gc-value-line strong { color: #18384d; font-size: 28px; font-weight: 710; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-value-line span { color: #168c69; font-size: 12px; font-weight: 650; }
+    #golomt-trade-concept .gc-value-tabs { display: flex; gap: 6px; margin-left: auto; }
+    #golomt-trade-concept .gc-value-tabs button { border: 0; color: #71869a; background: transparent; font-size: 10px; padding: 4px 6px; }
+    #golomt-trade-concept .gc-value-tabs button.is-current { color: #0b7d82; background: #e7f5f4; }
+    #golomt-trade-concept .gc-home-chart-canvas { position: relative; height: 230px; }
+    #golomt-trade-concept .gc-home-chart { display: block; width: 100%; height: 100%; }
+    #golomt-trade-concept .gc-home-chart text { fill: #8294a4; font-family: inherit; font-size: 10px; }
+    #golomt-trade-concept .gc-home-chart-tooltip { position: absolute; z-index: 2; top: 12px; right: 12px; width: 146px; padding: 8px 9px; border: 1px solid #cbdce3; background: #ffffff; color: #28495d; box-shadow: 0 4px 12px rgba(37,73,93,.11); pointer-events: none; opacity: 1; }
+    #golomt-trade-concept .gc-home-chart-tooltip b { display: block; color: #18384d; font-size: 12px; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-home-chart-tooltip span { display: block; margin-top: 2px; color: #7890a1; font-size: 10px; }
+    #golomt-trade-concept .gc-value-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; padding-top: 10px; border-top: 1px solid #e4ebef; color: #6d8293; font-size: 10px; }
+    #golomt-trade-concept .gc-value-bottom b { color: #315367; font-weight: 650; }
+    #golomt-trade-concept .gc-positions-panel { padding: 15px 15px 8px; }
+    #golomt-trade-concept .gc-home-title { display: flex; align-items: center; justify-content: space-between; color: #25475b; font-weight: 690; font-size: 13px; }
+    #golomt-trade-concept .gc-home-title button { padding: 0; border: 0; background: transparent; color: #0b7d82; font-size: 10px; }
+    #golomt-trade-concept .gc-position-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 11px 0; border-bottom: 1px solid #e4ebef; }
+    #golomt-trade-concept .gc-position-row:last-child { border-bottom: 0; }
+    #golomt-trade-concept .gc-position-name strong { color: #244358; display: block; font-size: 11px; }
+    #golomt-trade-concept .gc-position-name span { color: #8293a2; font-size: 10px; }
+    #golomt-trade-concept .gc-position-numbers { text-align: right; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-position-numbers b { display: block; color: #37576a; font-size: 11px; }
+    #golomt-trade-concept .gc-position-numbers span { color: #168c69; font-size: 10px; }
+    #golomt-trade-concept .gc-position-numbers span.is-down { color: #b94e57; }
+    #golomt-trade-concept .gc-home-lower { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: 14px; margin-top: 14px; }
+    #golomt-trade-concept .gc-index-panel, #golomt-trade-concept .gc-news-panel { padding: 15px; }
+    #golomt-trade-concept .gc-index-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 10px; align-items: center; padding: 11px 0; border-bottom: 1px solid #e4ebef; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-index-row:last-child { border-bottom: 0; }
+    #golomt-trade-concept .gc-index-row b { color: #29485c; font-size: 11px; }
+    #golomt-trade-concept .gc-index-row span { color: #657d90; font-size: 11px; }
+    #golomt-trade-concept .gc-index-row em { min-width: 57px; text-align: right; color: #168c69; font-size: 11px; font-style: normal; }
+    #golomt-trade-concept .gc-index-row em.is-down { color: #b94e57; }
+    #golomt-trade-concept .gc-news-item { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 11px; padding: 11px 0; border-bottom: 1px solid #e4ebef; }
+    #golomt-trade-concept .gc-news-item:last-child { border-bottom: 0; }
+    #golomt-trade-concept .gc-news-time { color: #8194a5; font-size: 10px; padding-top: 2px; }
+    #golomt-trade-concept .gc-news-item strong { display: block; color: #2b4a5d; font-size: 11px; font-weight: 650; line-height: 1.35; }
+    #golomt-trade-concept .gc-news-item span { color: #8395a6; font-size: 10px; }
+    #golomt-trade-concept .gc-view-action { border: 1px solid #b7791f; background: #b7791f; color: #ffffff; padding: 8px 11px; border-radius: 3px; font-size: 11px; font-weight: 680; white-space: nowrap; }
+    #golomt-trade-concept .gc-watch-layout { display: grid; grid-template-columns: 208px minmax(0, 1fr); gap: 14px; }
+    #golomt-trade-concept .gc-watch-sidebar, #golomt-trade-concept .gc-watch-main { border: 1px solid #d9e4eb; background: #ffffff; }
+    #golomt-trade-concept .gc-watch-sidebar { padding: 13px; }
+    #golomt-trade-concept .gc-watch-sidebar-heading { color: #72879a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+    #golomt-trade-concept .gc-watch-menu-item { display: flex; align-items: center; justify-content: space-between; width: 100%; margin: 2px 0; padding: 9px 8px; border: 0; background: transparent; color: #405e71; text-align: left; font-size: 11px; }
+    #golomt-trade-concept .gc-watch-menu-item.is-active { background: #e9f5f4; color: #126b70; font-weight: 650; }
+    #golomt-trade-concept .gc-watch-menu-item span { color: #8293a3; font-size: 10px; }
+    #golomt-trade-concept .gc-create-watchlist { width: 100%; margin-top: 12px; padding: 8px; border: 1px dashed #aec4cf; background: #fbfdfe; color: #23727a; font-size: 11px; }
+    #golomt-trade-concept .gc-watch-main { padding: 15px; }
+    #golomt-trade-concept .gc-watch-main-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid #e1e8ed; }
+    #golomt-trade-concept .gc-watch-main-head h2 { margin: 0; color: #24465a; font-size: 15px; font-weight: 700; }
+    #golomt-trade-concept .gc-watch-main-head span { color: #7b8e9f; font-size: 10px; }
+    #golomt-trade-concept .gc-watch-actions { display: flex; gap: 7px; }
+    #golomt-trade-concept .gc-watch-actions button { border: 1px solid #c7d6df; background: #f8fafb; color: #31556a; padding: 7px 9px; border-radius: 3px; font-size: 10px; }
+    #golomt-trade-concept .gc-watch-actions button:last-child { border-color: #079da3; background: #079da3; color: #ffffff; }
+    #golomt-trade-concept .gc-watch-table { width: 100%; border-collapse: collapse; margin-top: 3px; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-watch-table th { color: #75899c; padding: 10px 5px; text-align: right; text-transform: uppercase; font-size: 9px; letter-spacing: .06em; }
+    #golomt-trade-concept .gc-watch-table th:first-child, #golomt-trade-concept .gc-watch-table td:first-child { text-align: left; }
+    #golomt-trade-concept .gc-watch-table td { padding: 11px 5px; border-top: 1px solid #e4ebef; text-align: right; color: #3c596a; font-size: 11px; }
+    #golomt-trade-concept .gc-watch-table td strong { color: #234458; }
+    #golomt-trade-concept .gc-watch-table .gc-remove-row { border: 0; background: transparent; color: #a96168; font-size: 10px; }
+    #golomt-trade-concept .gc-report-toolbar { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border: 1px solid #d9e4eb; background: #ffffff; }
+    #golomt-trade-concept .gc-report-toolbar label { color: #708598; font-size: 10px; }
+    #golomt-trade-concept .gc-report-toolbar select { margin-left: 5px; padding: 7px 8px; border: 1px solid #cbd8e1; background: #ffffff; color: #294b5f; font-size: 11px; }
+    #golomt-trade-concept .gc-report-toolbar button { margin-left: auto; border: 1px solid #b7791f; background: #b7791f; color: #ffffff; padding: 8px 11px; border-radius: 3px; font-size: 11px; font-weight: 650; }
+    #golomt-trade-concept .gc-report-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 14px 0; }
+    #golomt-trade-concept .gc-report-card { min-height: 105px; padding: 13px; border: 1px solid #d9e4eb; background: #ffffff; }
+    #golomt-trade-concept .gc-report-card b { display: block; color: #28495d; font-size: 12px; }
+    #golomt-trade-concept .gc-report-card span { display: block; margin-top: 5px; color: #778b9b; font-size: 10px; line-height: 1.35; }
+    #golomt-trade-concept .gc-report-card button { margin-top: 11px; padding: 0; border: 0; background: transparent; color: #0b7d82; font-size: 10px; }
+    #golomt-trade-concept .gc-report-list { border: 1px solid #d9e4eb; background: #ffffff; }
+    #golomt-trade-concept .gc-report-list-head { display: flex; align-items: center; justify-content: space-between; padding: 13px 14px; border-bottom: 1px solid #e1e8ed; color: #29495c; font-weight: 680; font-size: 12px; }
+    #golomt-trade-concept .gc-report-list-head span { color: #7a8e9f; font-size: 10px; font-weight: 500; }
+    #golomt-trade-concept .gc-report-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-report-table th { padding: 10px 14px; background: #f7f9fb; color: #75899b; text-align: left; text-transform: uppercase; letter-spacing: .065em; font-size: 9px; }
+    #golomt-trade-concept .gc-report-table td { padding: 11px 14px; border-top: 1px solid #e4ebef; color: #3f5e70; font-size: 11px; }
+    #golomt-trade-concept .gc-report-table td:last-child, #golomt-trade-concept .gc-report-table th:last-child { text-align: right; }
+    #golomt-trade-concept .gc-report-table td strong { color: #24465a; }
+    #golomt-trade-concept .gc-report-table button { border: 1px solid #bfd0da; background: #ffffff; color: #31576b; padding: 5px 8px; border-radius: 3px; font-size: 10px; }
+    #golomt-trade-concept .gc-holdings-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+    #golomt-trade-concept .gc-holdings-stat { min-height: 78px; padding: 13px; border: 1px solid #d9e4eb; background: #ffffff; }
+    #golomt-trade-concept .gc-holdings-stat span { display: block; color: #71879a; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
+    #golomt-trade-concept .gc-holdings-stat strong { display: block; margin-top: 6px; color: #214257; font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-holdings-stat em { display: block; margin-top: 4px; color: #168c69; font-size: 10px; font-style: normal; }
+    #golomt-trade-concept .gc-holdings-stat em.gc-neutral { color: #71879a; }
+    #golomt-trade-concept .gc-holdings-surface { border: 1px solid #d9e4eb; background: #ffffff; }
+    #golomt-trade-concept .gc-holdings-topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 14px; border-bottom: 1px solid #e1e8ed; }
+    #golomt-trade-concept .gc-holdings-topline strong { color: #28495d; font-size: 12px; font-weight: 690; }
+    #golomt-trade-concept .gc-holdings-topline span { color: #7b8f9f; font-size: 10px; }
+    #golomt-trade-concept .gc-holdings-actions { display: flex; gap: 7px; }
+    #golomt-trade-concept .gc-holdings-actions button { border: 1px solid #c6d5de; background: #ffffff; color: #31566a; padding: 6px 8px; border-radius: 3px; font-size: 10px; }
+    #golomt-trade-concept .gc-holdings-actions button:last-child { border-color: #079da3; background: #079da3; color: #ffffff; }
+    #golomt-trade-concept .gc-holdings-table-wrap { overflow-x: auto; }
+    #golomt-trade-concept .gc-holdings-table { width: 100%; min-width: 880px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    #golomt-trade-concept .gc-holdings-table th { padding: 10px 13px; background: #f7f9fb; color: #73889a; text-align: right; text-transform: uppercase; letter-spacing: .065em; font-size: 9px; font-weight: 620; white-space: nowrap; }
+    #golomt-trade-concept .gc-holdings-table th:first-child, #golomt-trade-concept .gc-holdings-table th:nth-child(2), #golomt-trade-concept .gc-holdings-table th:last-child { text-align: left; }
+    #golomt-trade-concept .gc-holdings-table td { padding: 11px 13px; border-top: 1px solid #e4ebef; color: #425f71; text-align: right; font-size: 11px; white-space: nowrap; }
+    #golomt-trade-concept .gc-holdings-table td:first-child, #golomt-trade-concept .gc-holdings-table td:nth-child(2), #golomt-trade-concept .gc-holdings-table td:last-child { text-align: left; }
+    #golomt-trade-concept .gc-holdings-table td strong { display: block; color: #24475b; font-size: 11px; }
+    #golomt-trade-concept .gc-holdings-table td small { display: block; margin-top: 2px; color: #8193a3; font-size: 10px; }
+    #golomt-trade-concept .gc-holdings-table .gc-holding-type { color: #667e91; }
+    #golomt-trade-concept .gc-holding-status { display: inline-block; padding: 3px 6px; background: #e7f5ee; color: #198565; border-radius: 2px; font-size: 10px; font-weight: 650; }
+    #golomt-trade-concept .gc-holding-status.is-pending { background: #fbf1dc; color: #9f6818; }
+    #golomt-trade-concept .gc-holdings-foot { display: flex; justify-content: space-between; gap: 12px; padding: 11px 14px; border-top: 1px solid #e1e8ed; color: #75899b; font-size: 10px; }
+    @media (max-width: 1040px) {
+      #golomt-trade-concept .gc-grid { grid-template-columns: 1fr; }
+      #golomt-trade-concept .gc-rail { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); }
+      #golomt-trade-concept .gc-rail-card:last-child { grid-column: span 1; }
+    }
+    @media (max-width: 760px) {
+      #golomt-trade-concept .gc-top, #golomt-trade-concept .gc-subbar, #golomt-trade-concept .gc-main { padding-left: 14px; padding-right: 14px; }
+      #golomt-trade-concept .gc-brand em, #golomt-trade-concept .gc-search, #golomt-trade-concept .gc-context { display: none; }
+      #golomt-trade-concept .gc-product-nav { overflow-x: auto; }
+      #golomt-trade-concept .gc-account-line { overflow-x: auto; }
+      #golomt-trade-concept .gc-account-item { min-width: 145px; }
+      #golomt-trade-concept .gc-content-grid { grid-template-columns: 1fr; }
+      #golomt-trade-concept .gc-side-data { border-top: 1px solid #dfe7ed; display: grid; grid-template-columns: 1fr 1fr; }
+      #golomt-trade-concept .gc-data-section:last-child { grid-column: span 2; }
+      #golomt-trade-concept .gc-chart-area { border-right: 0; }
+      #golomt-trade-concept .gc-form-grid { grid-template-columns: 1fr 1fr; }
+      #golomt-trade-concept .gc-rail { grid-template-columns: 1fr; }
+      #golomt-trade-concept .gc-symbol-row { flex-wrap: wrap; }
+      #golomt-trade-concept .gc-symbol-actions { margin-left: 0; }
+      #golomt-trade-concept .gc-home-top, #golomt-trade-concept .gc-home-lower { grid-template-columns: 1fr; }
+      #golomt-trade-concept .gc-report-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 650px) {
+      #golomt-trade-concept .gc-nav { display: none; }
+      #golomt-trade-concept .gc-brand { min-width: auto; }
+    }
+    @media (max-width: 470px) {
+      #golomt-trade-concept .gc-top { gap: 12px; }
+      #golomt-trade-concept .gc-symbol-search { width: 100%; }
+      #golomt-trade-concept .gc-side-data { grid-template-columns: 1fr; }
+      #golomt-trade-concept .gc-data-section:last-child { grid-column: span 1; }
+      #golomt-trade-concept .gc-form-foot { flex-wrap: wrap; }
+      #golomt-trade-concept .gc-preview { margin-left: 0; }
+      #golomt-trade-concept .gc-page-head { align-items: flex-start; flex-direction: column; }
+      #golomt-trade-concept .gc-value-line strong { font-size: 22px; }
+      #golomt-trade-concept .gc-watch-layout, #golomt-trade-concept .gc-report-grid { grid-template-columns: 1fr; }
+      #golomt-trade-concept .gc-report-toolbar { align-items: flex-start; flex-wrap: wrap; }
+      #golomt-trade-concept .gc-report-toolbar button { margin-left: 0; }
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;gc-shell&quot; data-active-view=&quot;home&quot;&gt;
+    &lt;header class=&quot;gc-top&quot;&gt;
+      &lt;div class=&quot;gc-brand&quot;&gt;&lt;span class=&quot;gc-mark&quot;&gt;&lt;span&gt;G&lt;/span&gt;&lt;/span&gt; GOLOMT &lt;em&gt;Custody &amp;amp; Markets&lt;/em&gt;&lt;/div&gt;
+      &lt;nav class=&quot;gc-nav&quot; aria-label=&quot;Primary navigation&quot;&gt;
+        &lt;button type=&quot;button&quot; data-primary-view=&quot;home&quot; aria-current=&quot;page&quot;&gt;Home&lt;/button&gt;
+        &lt;button type=&quot;button&quot; data-primary-view=&quot;trade&quot;&gt;Trade&lt;/button&gt;
+        &lt;button type=&quot;button&quot; data-primary-view=&quot;watchlist&quot;&gt;Watchlists&lt;/button&gt;
+        &lt;button type=&quot;button&quot; data-primary-view=&quot;holdings&quot;&gt;Holdings&lt;/button&gt;
+        &lt;button type=&quot;button&quot; data-primary-view=&quot;reports&quot;&gt;Reporting&lt;/button&gt;
+      &lt;/nav&gt;
+      &lt;div class=&quot;gc-top-actions&quot;&gt;
+        &lt;input class=&quot;gc-search&quot; aria-label=&quot;Search markets&quot; placeholder=&quot;Search symbol, ISIN, fund&quot; /&gt;
+        &lt;div class=&quot;gc-avatar&quot; aria-label=&quot;Account profile&quot;&gt;AT&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div class=&quot;gc-subbar&quot;&gt;
+      &lt;nav class=&quot;gc-product-nav gc-trade-only&quot; aria-label=&quot;Trading product navigation&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;is-active&quot;&gt;International&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;Mongolian Equities&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;MNT Bonds&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;Funds&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;OTC&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;Money Market&lt;/button&gt;
+        &lt;button type=&quot;button&quot;&gt;FX&lt;/button&gt;
+      &lt;/nav&gt;
+      &lt;div class=&quot;gc-nontrade-title&quot; data-secondary-title&gt;Home&lt;/div&gt;
+      &lt;div class=&quot;gc-context&quot;&gt;&lt;strong&gt;Retail Custody&lt;/strong&gt; &amp;nbsp;•&amp;nbsp; Base currency MNT&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;main class=&quot;gc-main&quot;&gt;
+      &lt;section class=&quot;gc-home-panel&quot; data-view-panel=&quot;home&quot; aria-label=&quot;Home dashboard&quot;&gt;
+        &lt;div class=&quot;gc-page-head&quot;&gt;
+          &lt;div&gt;&lt;h1&gt;Good morning, Anu&lt;/h1&gt;&lt;p&gt;Your retail custody overview across Mongolian and international markets.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;gc-page-asof&quot;&gt;Valuation as of 26 Aug 2026, 10:45 Ulaanbaatar time&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;gc-home-top&quot;&gt;
+          &lt;section class=&quot;gc-home-surface gc-value-panel&quot; aria-label=&quot;Total account value&quot;&gt;
+            &lt;div style=&quot;display:flex;align-items:flex-start;gap:12px&quot;&gt;&lt;div&gt;&lt;div class=&quot;gc-value-kicker&quot;&gt;Total account value&lt;/div&gt;&lt;div class=&quot;gc-value-line&quot;&gt;&lt;strong&gt;MNT 284,560,410&lt;/strong&gt;&lt;span&gt;↑ 4.82% · 1 month&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;gc-value-tabs&quot; aria-label=&quot;Value chart period&quot;&gt;&lt;button type=&quot;button&quot;&gt;1W&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;is-current&quot;&gt;1M&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;3M&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;1Y&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-home-chart-canvas&quot; data-home-chart-canvas&gt;
+              &lt;svg class=&quot;gc-home-chart&quot; viewBox=&quot;0 0 660 230&quot; preserveAspectRatio=&quot;none&quot; role=&quot;img&quot; aria-label=&quot;One-month total account value line chart; hover to see a historic account value&quot;&gt;
+                &lt;title&gt;One-month total account value&lt;/title&gt;&lt;desc&gt;Account value rises from MNT 251 million to MNT 284.6 million across the period.&lt;/desc&gt;
+                &lt;g stroke=&quot;#e5ebef&quot; stroke-width=&quot;1&quot;&gt;&lt;line x1=&quot;22&quot; y1=&quot;22&quot; x2=&quot;640&quot; y2=&quot;22&quot;/&gt;&lt;line x1=&quot;22&quot; y1=&quot;67&quot; x2=&quot;640&quot; y2=&quot;67&quot;/&gt;&lt;line x1=&quot;22&quot; y1=&quot;112&quot; x2=&quot;640&quot; y2=&quot;112&quot;/&gt;&lt;line x1=&quot;22&quot; y1=&quot;157&quot; x2=&quot;640&quot; y2=&quot;157&quot;/&gt;&lt;line x1=&quot;22&quot; y1=&quot;202&quot; x2=&quot;640&quot; y2=&quot;202&quot;/&gt;&lt;/g&gt;
+                &lt;g&gt;&lt;text x=&quot;0&quot; y=&quot;25&quot;&gt;290M&lt;/text&gt;&lt;text x=&quot;0&quot; y=&quot;70&quot;&gt;280M&lt;/text&gt;&lt;text x=&quot;0&quot; y=&quot;115&quot;&gt;270M&lt;/text&gt;&lt;text x=&quot;0&quot; y=&quot;160&quot;&gt;260M&lt;/text&gt;&lt;text x=&quot;0&quot; y=&quot;205&quot;&gt;250M&lt;/text&gt;&lt;/g&gt;
+                &lt;path d=&quot;M22 182 L98 166 L174 149 L250 157 L326 129 L402 99 L478 76 L554 92 L630 47 L630 202 L22 202 Z&quot; fill=&quot;#e5f6f4&quot;/&gt;
+                &lt;path d=&quot;M22 182 L98 166 L174 149 L250 157 L326 129 L402 99 L478 76 L554 92 L630 47&quot; fill=&quot;none&quot; stroke=&quot;#079da3&quot; stroke-width=&quot;2.5&quot;/&gt;
+                &lt;g fill=&quot;#079da3&quot;&gt;&lt;circle cx=&quot;22&quot; cy=&quot;182&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;98&quot; cy=&quot;166&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;174&quot; cy=&quot;149&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;250&quot; cy=&quot;157&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;326&quot; cy=&quot;129&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;402&quot; cy=&quot;99&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;478&quot; cy=&quot;76&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;554&quot; cy=&quot;92&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;630&quot; cy=&quot;47&quot; r=&quot;4&quot;/&gt;&lt;/g&gt;
+                &lt;line data-home-guide x1=&quot;630&quot; y1=&quot;18&quot; x2=&quot;630&quot; y2=&quot;202&quot; stroke=&quot;#b7791f&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;3 4&quot;/&gt;
+                &lt;circle data-home-guide-dot cx=&quot;630&quot; cy=&quot;47&quot; r=&quot;5&quot; fill=&quot;#ffffff&quot; stroke=&quot;#b7791f&quot; stroke-width=&quot;2&quot;/&gt;
+                &lt;g&gt;&lt;text x=&quot;22&quot; y=&quot;221&quot;&gt;24 Jul&lt;/text&gt;&lt;text x=&quot;169&quot; y=&quot;221&quot;&gt;01 Aug&lt;/text&gt;&lt;text x=&quot;316&quot; y=&quot;221&quot;&gt;08 Aug&lt;/text&gt;&lt;text x=&quot;463&quot; y=&quot;221&quot;&gt;15 Aug&lt;/text&gt;&lt;text x=&quot;596&quot; y=&quot;221&quot;&gt;25 Aug&lt;/text&gt;&lt;/g&gt;
+                &lt;rect data-home-chart-hit x=&quot;22&quot; y=&quot;18&quot; width=&quot;618&quot; height=&quot;186&quot; fill=&quot;transparent&quot; style=&quot;cursor:crosshair&quot;/&gt;
+              &lt;/svg&gt;
+              &lt;div class=&quot;gc-home-chart-tooltip&quot; data-home-tooltip aria-live=&quot;polite&quot;&gt;&lt;b&gt;MNT 284,560,410&lt;/b&gt;&lt;span&gt;25 Aug 2026 · portfolio value&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;gc-value-bottom&quot;&gt;&lt;span&gt;MNT base value · includes settled and pending holdings&lt;/span&gt;&lt;span&gt;&lt;b&gt;Available to trade&lt;/b&gt; MNT 18,405,000&lt;/span&gt;&lt;/div&gt;
+          &lt;/section&gt;
+          &lt;section class=&quot;gc-home-surface gc-positions-panel&quot; aria-label=&quot;Open positions&quot;&gt;
+            &lt;div class=&quot;gc-home-title&quot;&gt;&lt;span&gt;Open positions&lt;/span&gt;&lt;button type=&quot;button&quot; data-primary-view=&quot;trade&quot;&gt;View all positions →&lt;/button&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-position-row&quot;&gt;&lt;div class=&quot;gc-position-name&quot;&gt;&lt;strong&gt;MSFT&lt;/strong&gt;&lt;span&gt;NASDAQ · USD equity&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;gc-position-numbers&quot;&gt;&lt;b&gt;USD 9,231.12&lt;/b&gt;&lt;span&gt;↑ 0.93%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-position-row&quot;&gt;&lt;div class=&quot;gc-position-name&quot;&gt;&lt;strong&gt;MNT GOV 2028&lt;/strong&gt;&lt;span&gt;Government bond · MNT&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;gc-position-numbers&quot;&gt;&lt;b&gt;MNT 48,650,000&lt;/b&gt;&lt;span&gt;↑ 0.08%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-position-row&quot;&gt;&lt;div class=&quot;gc-position-name&quot;&gt;&lt;strong&gt;Mongolia Equity Fund&lt;/strong&gt;&lt;span&gt;Public fund · MNT&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;gc-position-numbers&quot;&gt;&lt;b&gt;MNT 27,120,600&lt;/b&gt;&lt;span class=&quot;is-down&quot;&gt;↓ 0.14%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-position-row&quot;&gt;&lt;div class=&quot;gc-position-name&quot;&gt;&lt;strong&gt;AAPL&lt;/strong&gt;&lt;span&gt;NASDAQ · USD equity&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;gc-position-numbers&quot;&gt;&lt;b&gt;USD 4,812.70&lt;/b&gt;&lt;span&gt;↑ 0.66%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;/section&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;gc-home-lower&quot;&gt;
+          &lt;section class=&quot;gc-home-surface gc-index-panel&quot; aria-label=&quot;Index changes&quot;&gt;
+            &lt;div class=&quot;gc-home-title&quot;&gt;&lt;span&gt;Index changes&lt;/span&gt;&lt;button type=&quot;button&quot; data-primary-view=&quot;trade&quot;&gt;Open markets →&lt;/button&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-index-row&quot;&gt;&lt;b&gt;MSE Top 20&lt;/b&gt;&lt;span&gt;52,308.45&lt;/span&gt;&lt;em&gt;↑ 0.42%&lt;/em&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-index-row&quot;&gt;&lt;b&gt;MSE A&lt;/b&gt;&lt;span&gt;18,744.11&lt;/span&gt;&lt;em class=&quot;is-down&quot;&gt;↓ 0.18%&lt;/em&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-index-row&quot;&gt;&lt;b&gt;S&amp;amp;P 500&lt;/b&gt;&lt;span&gt;6,483.22&lt;/span&gt;&lt;em&gt;↑ 0.37%&lt;/em&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-index-row&quot;&gt;&lt;b&gt;NASDAQ-100&lt;/b&gt;&lt;span&gt;23,494.18&lt;/span&gt;&lt;em&gt;↑ 0.61%&lt;/em&gt;&lt;/div&gt;
+          &lt;/section&gt;
+          &lt;section class=&quot;gc-home-surface gc-news-panel&quot; aria-label=&quot;Market news and notices&quot;&gt;
+            &lt;div class=&quot;gc-home-title&quot;&gt;&lt;span&gt;News &amp;amp; notices&lt;/span&gt;&lt;button type=&quot;button&quot;&gt;See all →&lt;/button&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-news-item&quot;&gt;&lt;div class=&quot;gc-news-time&quot;&gt;10:12&lt;br/&gt;today&lt;/div&gt;&lt;div&gt;&lt;strong&gt;MSE market activity summary is available for review&lt;/strong&gt;&lt;span&gt;Mongolian market · Market notice&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-news-item&quot;&gt;&lt;div class=&quot;gc-news-time&quot;&gt;09:30&lt;br/&gt;today&lt;/div&gt;&lt;div&gt;&lt;strong&gt;US technology shares open higher as the Nasdaq session begins&lt;/strong&gt;&lt;span&gt;International markets · Market news&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-news-item&quot;&gt;&lt;div class=&quot;gc-news-time&quot;&gt;08:45&lt;br/&gt;today&lt;/div&gt;&lt;div&gt;&lt;strong&gt;Mongolia Equity Fund dealing cut-off is at 15:00&lt;/strong&gt;&lt;span&gt;Funds · Action may be required&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;/section&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;gc-watch-panel&quot; data-view-panel=&quot;watchlist&quot; aria-label=&quot;Watchlists&quot;&gt;
+        &lt;div class=&quot;gc-page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;Watchlists&lt;/h1&gt;&lt;p&gt;Create focused lists, follow selected instruments, and act when ready.&lt;/p&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;gc-view-action&quot; data-create-watchlist&gt;+ New watchlist&lt;/button&gt;&lt;/div&gt;
+        &lt;div class=&quot;gc-watch-layout&quot;&gt;
+          &lt;aside class=&quot;gc-watch-sidebar&quot; aria-label=&quot;Saved watchlists&quot;&gt;&lt;div class=&quot;gc-watch-sidebar-heading&quot;&gt;My watchlists&lt;/div&gt;&lt;div data-watchlist-menu&gt;&lt;button type=&quot;button&quot; class=&quot;gc-watch-menu-item is-active&quot; data-watchlist-name=&quot;Core allocation&quot;&gt;Core allocation &lt;span&gt;6&lt;/span&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;gc-watch-menu-item&quot; data-watchlist-name=&quot;Mongolia ideas&quot;&gt;Mongolia ideas &lt;span&gt;4&lt;/span&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;gc-watch-menu-item&quot; data-watchlist-name=&quot;US technology&quot;&gt;US technology &lt;span&gt;7&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;gc-create-watchlist&quot; data-create-watchlist&gt;+ Create new watchlist&lt;/button&gt;&lt;/aside&gt;
+          &lt;section class=&quot;gc-watch-main&quot; aria-label=&quot;Selected watchlist&quot;&gt;&lt;div class=&quot;gc-watch-main-head&quot;&gt;&lt;div&gt;&lt;h2 data-watchlist-title&gt;Core allocation&lt;/h2&gt;&lt;span&gt;&lt;span data-watchlist-count&gt;6&lt;/span&gt; instruments · prices are illustrative&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;gc-watch-actions&quot;&gt;&lt;button type=&quot;button&quot; data-delete-watchlist&gt;Delete list&lt;/button&gt;&lt;button type=&quot;button&quot; data-add-symbol&gt;+ Add instrument&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;table class=&quot;gc-watch-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Instrument&lt;/th&gt;&lt;th&gt;Last&lt;/th&gt;&lt;th&gt;Day change&lt;/th&gt;&lt;th&gt;Market&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody data-watchlist-body&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;MSFT&lt;/strong&gt;&lt;br/&gt;&lt;span style=&quot;color:#7d92a4;font-size:10px&quot;&gt;Microsoft Corp.&lt;/span&gt;&lt;/td&gt;&lt;td&gt;USD 512.84&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;↑ 0.91%&lt;/td&gt;&lt;td&gt;NASDAQ&lt;/td&gt;&lt;td&gt;&lt;button type=&quot;button&quot; class=&quot;gc-remove-row&quot; data-remove-watch-row&gt;Remove&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;MNT GOV 2028&lt;/strong&gt;&lt;br/&gt;&lt;span style=&quot;color:#7d92a4;font-size:10px&quot;&gt;Government security&lt;/span&gt;&lt;/td&gt;&lt;td&gt;101.35&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;↑ 0.08%&lt;/td&gt;&lt;td&gt;MNT Bond&lt;/td&gt;&lt;td&gt;&lt;button type=&quot;button&quot; class=&quot;gc-remove-row&quot; data-remove-watch-row&gt;Remove&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;AAPL&lt;/strong&gt;&lt;br/&gt;&lt;span style=&quot;color:#7d92a4;font-size:10px&quot;&gt;Apple Inc.&lt;/span&gt;&lt;/td&gt;&lt;td&gt;USD 226.79&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;↑ 0.66%&lt;/td&gt;&lt;td&gt;NASDAQ&lt;/td&gt;&lt;td&gt;&lt;button type=&quot;button&quot; class=&quot;gc-remove-row&quot; data-remove-watch-row&gt;Remove&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;MSE TOP 20&lt;/strong&gt;&lt;br/&gt;&lt;span style=&quot;color:#7d92a4;font-size:10px&quot;&gt;Mongolian equity index&lt;/span&gt;&lt;/td&gt;&lt;td&gt;52,308.45&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;↑ 0.42%&lt;/td&gt;&lt;td&gt;MSE&lt;/td&gt;&lt;td&gt;&lt;button type=&quot;button&quot; class=&quot;gc-remove-row&quot; data-remove-watch-row&gt;Remove&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+          &lt;/section&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;gc-holdings-panel&quot; data-view-panel=&quot;holdings&quot; aria-label=&quot;Client holdings&quot;&gt;
+        &lt;div class=&quot;gc-page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;Holdings&lt;/h1&gt;&lt;p&gt;All assets held in your custody accounts, including cash and pending settlement.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;gc-page-asof&quot;&gt;Market values in MNT equivalent · as of 26 Aug 2026, 10:45&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;gc-holdings-summary&quot;&gt;
+          &lt;div class=&quot;gc-holdings-stat&quot;&gt;&lt;span&gt;Total held assets&lt;/span&gt;&lt;strong&gt;MNT 266,155,410&lt;/strong&gt;&lt;em&gt;↑ 0.84% today&lt;/em&gt;&lt;/div&gt;
+          &lt;div class=&quot;gc-holdings-stat&quot;&gt;&lt;span&gt;Cash &amp;amp; cash equivalents&lt;/span&gt;&lt;strong&gt;MNT 18,405,000&lt;/strong&gt;&lt;em class=&quot;gc-neutral&quot;&gt;MNT, USD and EUR balances&lt;/em&gt;&lt;/div&gt;
+          &lt;div class=&quot;gc-holdings-stat&quot;&gt;&lt;span&gt;Pending settlement&lt;/span&gt;&lt;strong&gt;MNT 6,214,500&lt;/strong&gt;&lt;em class=&quot;gc-neutral&quot;&gt;2 open orders · 1 fund dealing&lt;/em&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;section class=&quot;gc-holdings-surface&quot; aria-label=&quot;All custody holdings&quot;&gt;
+          &lt;div class=&quot;gc-holdings-topline&quot;&gt;&lt;div&gt;&lt;strong&gt;All assets&lt;/strong&gt;&lt;span&gt;&amp;nbsp; · 11 positions across 6 asset types&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;gc-holdings-actions&quot;&gt;&lt;button type=&quot;button&quot;&gt;All accounts&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;Download holdings&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class=&quot;gc-holdings-table-wrap&quot;&gt;&lt;table class=&quot;gc-holdings-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Asset&lt;/th&gt;&lt;th&gt;Asset type&lt;/th&gt;&lt;th&gt;Quantity / nominal&lt;/th&gt;&lt;th&gt;Price / NAV&lt;/th&gt;&lt;th&gt;Market value&lt;/th&gt;&lt;th&gt;Day change&lt;/th&gt;&lt;th&gt;Currency&lt;/th&gt;&lt;th&gt;Availability&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;MSFT&lt;/strong&gt;&lt;small&gt;Microsoft Corp. · NASDAQ&lt;/small&gt;&lt;/td&gt;&lt;td class=&quot;gc-holding-type&quot;&gt;International equity&lt;/td&gt;&lt;td&gt;18 shares&lt;/td&gt;&lt;td&gt;USD 512.84&lt;/td&gt;&lt;td&gt;MNT 31,984,000&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;↑ 0.93%&lt;/td&gt;&lt;td&gt;USD&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-holding-status&quot;&gt;Settled&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;AAPL&lt;/strong&gt;&lt;small&gt;Apple Inc. · NASDAQ&lt;/small&gt;&lt;/td&gt;&lt;td class=&quot;gc-holding-type&quot;&gt;International equity&lt;/td&gt;&lt;td&gt;21 shares&lt;/td&gt;&lt;td&gt;USD 226.79&lt;/td&gt;&lt;td&gt;MNT 16,682,400&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;↑ 0.66%&lt;/td&gt;&lt;td&gt;USD&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-holding-status&quot;&gt;Settled&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;MNT GOV 2028&lt;/strong&gt;&lt;small&gt;Mongolian government security · MSE&lt;/small&gt;&lt;/td&gt;&lt;td class=&quot;gc-holding-type&quot;&gt;MNT bond&lt;/td&gt;&lt;td&gt;MNT 48,000,000&lt;/td&gt;&lt;td&gt;101.35&lt;/td&gt;&lt;td&gt;MNT 48,650,000&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;↑ 0.08%&lt;/td&gt;&lt;td&gt;MNT&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-holding-status&quot;&gt;Settled&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;Mongolia Equity Fund&lt;/strong&gt;&lt;small&gt;Public fund · dealing NAV&lt;/small&gt;&lt;/td&gt;&lt;td class=&quot;gc-holding-type&quot;&gt;Fund unit&lt;/td&gt;&lt;td&gt;14,200.00 units&lt;/td&gt;&lt;td&gt;MNT 1,910.00&lt;/td&gt;&lt;td&gt;MNT 27,122,000&lt;/td&gt;&lt;td class=&quot;gc-status-red&quot;&gt;↓ 0.14%&lt;/td&gt;&lt;td&gt;MNT&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-holding-status is-pending&quot;&gt;NAV pending&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;Mongolia USD 2030&lt;/strong&gt;&lt;small&gt;Foreign-currency issued bond&lt;/small&gt;&lt;/td&gt;&lt;td class=&quot;gc-holding-type&quot;&gt;USD bond&lt;/td&gt;&lt;td&gt;USD 10,000 nominal&lt;/td&gt;&lt;td&gt;98.42&lt;/td&gt;&lt;td&gt;MNT 34,371,000&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;↑ 0.12%&lt;/td&gt;&lt;td&gt;USD&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-holding-status&quot;&gt;Settled&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;USD cash&lt;/strong&gt;&lt;small&gt;International trading cash&lt;/small&gt;&lt;/td&gt;&lt;td class=&quot;gc-holding-type&quot;&gt;Cash&lt;/td&gt;&lt;td&gt;USD 12,640.22&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;MNT 44,118,000&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;USD&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-holding-status&quot;&gt;Available&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;MNT cash&lt;/strong&gt;&lt;small&gt;Custody operating account&lt;/small&gt;&lt;/td&gt;&lt;td class=&quot;gc-holding-type&quot;&gt;Cash&lt;/td&gt;&lt;td&gt;MNT 18,405,000&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;MNT 18,405,000&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;MNT&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-holding-status&quot;&gt;Available&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+          &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+          &lt;div class=&quot;gc-holdings-foot&quot;&gt;&lt;span&gt;Values are illustrative. Cash, securities and pending activity remain separately identifiable.&lt;/span&gt;&lt;span&gt;Display currency: &lt;b&gt;MNT&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;gc-report-panel&quot; data-view-panel=&quot;reports&quot; aria-label=&quot;Reporting centre&quot;&gt;
+        &lt;div class=&quot;gc-page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;Reporting&lt;/h1&gt;&lt;p&gt;Statements, confirmations, custody records, and investment performance in one place.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;gc-page-asof&quot;&gt;All reports are generated with an as-of timestamp&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;gc-report-toolbar&quot;&gt;&lt;label&gt;Account &lt;select&gt;&lt;option&gt;All retail custody accounts&lt;/option&gt;&lt;option&gt;GCM-RETAIL-001&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;&lt;label&gt;Period &lt;select&gt;&lt;option&gt;Year to date 2026&lt;/option&gt;&lt;option&gt;August 2026&lt;/option&gt;&lt;option&gt;Custom range&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;&lt;button type=&quot;button&quot;&gt;Build report pack&lt;/button&gt;&lt;/div&gt;
+        &lt;div class=&quot;gc-report-grid&quot;&gt;&lt;div class=&quot;gc-report-card&quot;&gt;&lt;b&gt;Activity statement&lt;/b&gt;&lt;span&gt;Orders, trades, cash and holdings for a selected period.&lt;/span&gt;&lt;button type=&quot;button&quot;&gt;Open statement →&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;gc-report-card&quot;&gt;&lt;b&gt;Trade confirmations&lt;/b&gt;&lt;span&gt;Execution price, fees, venue, currency and settlement details.&lt;/span&gt;&lt;button type=&quot;button&quot;&gt;View confirmations →&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;gc-report-card&quot;&gt;&lt;b&gt;Holdings &amp;amp; valuation&lt;/b&gt;&lt;span&gt;Custody positions, market value and cash by currency.&lt;/span&gt;&lt;button type=&quot;button&quot;&gt;Open valuation →&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;gc-report-card&quot;&gt;&lt;b&gt;P&amp;amp;L &amp;amp; tax lots&lt;/b&gt;&lt;span&gt;Realized and unrealized gain/loss, cost basis and FX impact.&lt;/span&gt;&lt;button type=&quot;button&quot;&gt;View P&amp;amp;L →&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;gc-report-card&quot;&gt;&lt;b&gt;Fund unit activity&lt;/b&gt;&lt;span&gt;NAV, subscriptions, redemptions and fund dealing confirmations.&lt;/span&gt;&lt;button type=&quot;button&quot;&gt;Open fund activity →&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;gc-report-card&quot;&gt;&lt;b&gt;Custody events&lt;/b&gt;&lt;span&gt;Corporate actions, coupons, transfers and settlement movements.&lt;/span&gt;&lt;button type=&quot;button&quot;&gt;View custody events →&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;section class=&quot;gc-report-list&quot; aria-label=&quot;Recent report files&quot;&gt;&lt;div class=&quot;gc-report-list-head&quot;&gt;&lt;span&gt;Recent reports&lt;/span&gt;&lt;span&gt;PDF · CSV · XLSX formats&lt;/span&gt;&lt;/div&gt;&lt;table class=&quot;gc-report-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Report&lt;/th&gt;&lt;th&gt;Period&lt;/th&gt;&lt;th&gt;Generated&lt;/th&gt;&lt;th&gt;Format&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Custody statement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Jul 2026&lt;/td&gt;&lt;td&gt;01 Aug 2026, 09:00&lt;/td&gt;&lt;td&gt;PDF&lt;/td&gt;&lt;td&gt;&lt;button type=&quot;button&quot;&gt;Download&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Realized &amp;amp; unrealized P&amp;amp;L&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;YTD 2026&lt;/td&gt;&lt;td&gt;26 Aug 2026, 10:45&lt;/td&gt;&lt;td&gt;XLSX&lt;/td&gt;&lt;td&gt;&lt;button type=&quot;button&quot;&gt;Download&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Fund NAV transaction statement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Aug 2026&lt;/td&gt;&lt;td&gt;25 Aug 2026, 17:10&lt;/td&gt;&lt;td&gt;PDF&lt;/td&gt;&lt;td&gt;&lt;button type=&quot;button&quot;&gt;Download&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/section&gt;
+      &lt;/section&gt;
+
+      &lt;div class=&quot;gc-breadcrumb gc-trade-only&quot;&gt;Trade &amp;nbsp;/&amp;nbsp; &lt;b&gt;International trading&lt;/b&gt; &amp;nbsp;/&amp;nbsp; United States equities&lt;/div&gt;
+      &lt;section class=&quot;gc-account-line gc-trade-only&quot; aria-label=&quot;Account overview&quot;&gt;
+        &lt;div class=&quot;gc-account-item gc-wide&quot;&gt;&lt;span class=&quot;label&quot;&gt;Portfolio market value&lt;/span&gt;&lt;span class=&quot;value&quot;&gt;MNT 284,560,410 &lt;span class=&quot;delta&quot;&gt;+0.84% today&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;gc-account-item&quot;&gt;&lt;span class=&quot;label&quot;&gt;Available to trade&lt;/span&gt;&lt;span class=&quot;value&quot;&gt;USD 12,640.22&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;gc-account-item&quot;&gt;&lt;span class=&quot;label&quot;&gt;Unrealized P&amp;amp;L&lt;/span&gt;&lt;span class=&quot;value&quot;&gt;+USD 1,205.84&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;gc-market-chip&quot;&gt;&lt;span class=&quot;gc-live&quot;&gt;&lt;/span&gt;NASDAQ open · live market data&lt;/div&gt;
+      &lt;/section&gt;
+      &lt;div class=&quot;gc-grid gc-trade-only&quot;&gt;
+        &lt;section class=&quot;gc-workspace&quot; aria-label=&quot;International trade workspace&quot;&gt;
+          &lt;div class=&quot;gc-symbol-row&quot;&gt;
+            &lt;input class=&quot;gc-symbol-search&quot; aria-label=&quot;Selected symbol&quot; value=&quot;MSFT&quot; /&gt;
+            &lt;div class=&quot;gc-instrument&quot;&gt;
+              &lt;span class=&quot;gc-ticker&quot;&gt;MSFT&lt;/span&gt;&lt;span class=&quot;gc-name&quot;&gt;Microsoft Corp.&lt;/span&gt;
+              &lt;div class=&quot;gc-venue&quot;&gt;NASDAQ · USD · Equity&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;gc-quote&quot;&gt;
+              &lt;div class=&quot;price&quot; data-quote-price&gt;USD 512.84&lt;/div&gt;
+              &lt;div class=&quot;price-note&quot; data-quote-change&gt;+4.61 &amp;nbsp;+0.91%&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;gc-symbol-actions&quot;&gt;
+              &lt;button type=&quot;button&quot; data-asset=&quot;MSFT&quot;&gt;MSFT&lt;/button&gt;
+              &lt;button type=&quot;button&quot; data-asset=&quot;AAPL&quot;&gt;AAPL&lt;/button&gt;
+              &lt;button type=&quot;button&quot; data-asset=&quot;NVDA&quot;&gt;NVDA&lt;/button&gt;
+              &lt;button type=&quot;button&quot; aria-label=&quot;Add instrument to watchlist&quot;&gt;☆ Watch&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;gc-content-grid&quot;&gt;
+            &lt;div class=&quot;gc-chart-area&quot;&gt;
+              &lt;div class=&quot;gc-chart-toolbar&quot;&gt;
+                &lt;span class=&quot;gc-toolbar-label&quot;&gt;Chart&lt;/span&gt;&lt;span class=&quot;gc-toolbar-rule&quot;&gt;&lt;/span&gt;
+                &lt;button type=&quot;button&quot; class=&quot;gc-tool is-selected&quot;&gt;Candles&lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;gc-tool&quot;&gt;Indicators&lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;gc-tool&quot;&gt;Drawing&lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;gc-tool&quot;&gt;Compare&lt;/button&gt;
+                &lt;span class=&quot;gc-save&quot;&gt;Auto-save layout ✓&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;gc-chart-wrap&quot;&gt;
+                &lt;div class=&quot;gc-chart-meta&quot;&gt;&lt;span&gt;&lt;strong data-chart-label&gt;MSFT · 1D · NASDAQ&lt;/strong&gt; &amp;nbsp; O 508.10 &amp;nbsp; H 514.22 &amp;nbsp; L 505.87 &amp;nbsp; C &lt;b data-chart-close&gt;512.84&lt;/b&gt;&lt;/span&gt;&lt;span&gt;USD&lt;/span&gt;&lt;/div&gt;
+                &lt;svg class=&quot;gc-chart&quot; viewBox=&quot;0 0 720 276&quot; role=&quot;img&quot; aria-label=&quot;Illustrative intraday candlestick chart for Microsoft stock&quot;&gt;
+                  &lt;defs&gt;&lt;clipPath id=&quot;gc-clip&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;685&quot; height=&quot;239&quot;&gt;&lt;/rect&gt;&lt;/clipPath&gt;&lt;/defs&gt;
+                  &lt;g stroke=&quot;#26394e&quot; stroke-width=&quot;1&quot;&gt;
+                    &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;685&quot; y2=&quot;0&quot;/&gt;&lt;line x1=&quot;0&quot; y1=&quot;47&quot; x2=&quot;685&quot; y2=&quot;47&quot;/&gt;&lt;line x1=&quot;0&quot; y1=&quot;94&quot; x2=&quot;685&quot; y2=&quot;94&quot;/&gt;&lt;line x1=&quot;0&quot; y1=&quot;141&quot; x2=&quot;685&quot; y2=&quot;141&quot;/&gt;&lt;line x1=&quot;0&quot; y1=&quot;188&quot; x2=&quot;685&quot; y2=&quot;188&quot;/&gt;&lt;line x1=&quot;0&quot; y1=&quot;239&quot; x2=&quot;685&quot; y2=&quot;239&quot;/&gt;
+                    &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;239&quot;/&gt;&lt;line x1=&quot;114&quot; y1=&quot;0&quot; x2=&quot;114&quot; y2=&quot;239&quot;/&gt;&lt;line x1=&quot;228&quot; y1=&quot;0&quot; x2=&quot;228&quot; y2=&quot;239&quot;/&gt;&lt;line x1=&quot;342&quot; y1=&quot;0&quot; x2=&quot;342&quot; y2=&quot;239&quot;/&gt;&lt;line x1=&quot;456&quot; y1=&quot;0&quot; x2=&quot;456&quot; y2=&quot;239&quot;/&gt;&lt;line x1=&quot;570&quot; y1=&quot;0&quot; x2=&quot;570&quot; y2=&quot;239&quot;/&gt;&lt;line x1=&quot;685&quot; y1=&quot;0&quot; x2=&quot;685&quot; y2=&quot;239&quot;/&gt;
+                  &lt;/g&gt;
+                  &lt;g clip-path=&quot;url(#gc-clip)&quot; data-candle-group&gt;&lt;/g&gt;
+                  &lt;line x1=&quot;0&quot; y1=&quot;82&quot; x2=&quot;685&quot; y2=&quot;82&quot; stroke=&quot;#d4a64d&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;3 4&quot; opacity=&quot;.9&quot;/&gt;
+                  &lt;rect x=&quot;687&quot; y=&quot;73&quot; width=&quot;32&quot; height=&quot;18&quot; fill=&quot;#d7a64a&quot;/&gt;&lt;text x=&quot;691&quot; y=&quot;86&quot; fill=&quot;#142238&quot; style=&quot;font-weight:700&quot; data-current-label&gt;512.84&lt;/text&gt;
+                  &lt;g&gt;&lt;text x=&quot;690&quot; y=&quot;6&quot;&gt;516&lt;/text&gt;&lt;text x=&quot;690&quot; y=&quot;53&quot;&gt;512&lt;/text&gt;&lt;text x=&quot;690&quot; y=&quot;100&quot;&gt;508&lt;/text&gt;&lt;text x=&quot;690&quot; y=&quot;147&quot;&gt;504&lt;/text&gt;&lt;text x=&quot;690&quot; y=&quot;194&quot;&gt;500&lt;/text&gt;&lt;text x=&quot;690&quot; y=&quot;241&quot;&gt;496&lt;/text&gt;&lt;/g&gt;
+                  &lt;g&gt;&lt;text x=&quot;0&quot; y=&quot;266&quot;&gt;09:30&lt;/text&gt;&lt;text x=&quot;105&quot; y=&quot;266&quot;&gt;10:30&lt;/text&gt;&lt;text x=&quot;219&quot; y=&quot;266&quot;&gt;11:30&lt;/text&gt;&lt;text x=&quot;333&quot; y=&quot;266&quot;&gt;12:30&lt;/text&gt;&lt;text x=&quot;447&quot; y=&quot;266&quot;&gt;13:30&lt;/text&gt;&lt;text x=&quot;561&quot; y=&quot;266&quot;&gt;14:30&lt;/text&gt;&lt;text x=&quot;655&quot; y=&quot;266&quot;&gt;15:30&lt;/text&gt;&lt;/g&gt;
+                &lt;/svg&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;gc-range-row&quot; aria-label=&quot;Chart range&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;is-selected&quot;&gt;1D&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;5D&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;1M&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;3M&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;1Y&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;5Y&lt;/button&gt;
+                &lt;span class=&quot;tz&quot;&gt;Exchange time · EDT&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;aside class=&quot;gc-side-data&quot; aria-label=&quot;Instrument market data&quot;&gt;
+              &lt;section class=&quot;gc-data-section&quot;&gt;
+                &lt;div class=&quot;gc-data-heading&quot;&gt;&lt;strong&gt;Market depth&lt;/strong&gt;&lt;span&gt;Level 1&lt;/span&gt;&lt;/div&gt;
+                &lt;table class=&quot;gc-book&quot; aria-label=&quot;Illustrative market depth&quot;&gt;&lt;tbody&gt;
+                  &lt;tr&gt;&lt;td&gt;Ask&lt;/td&gt;&lt;td&gt;512.86&lt;/td&gt;&lt;td&gt;200&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Ask&lt;/td&gt;&lt;td&gt;512.85&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;/tr&gt;
+                  &lt;tr class=&quot;gc-spread&quot;&gt;&lt;td colspan=&quot;3&quot;&gt;&lt;span&gt;Bid / Ask spread&lt;/span&gt;&lt;span&gt;0.01&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                  &lt;tr class=&quot;gc-book bid&quot;&gt;&lt;td&gt;Bid&lt;/td&gt;&lt;td&gt;512.84&lt;/td&gt;&lt;td&gt;300&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;gc-book bid&quot;&gt;&lt;td&gt;Bid&lt;/td&gt;&lt;td&gt;512.83&lt;/td&gt;&lt;td&gt;500&lt;/td&gt;&lt;/tr&gt;
+                &lt;/tbody&gt;&lt;/table&gt;
+              &lt;/section&gt;
+              &lt;section class=&quot;gc-data-section&quot;&gt;
+                &lt;div class=&quot;gc-data-heading&quot;&gt;&lt;strong&gt;Key statistics&lt;/strong&gt;&lt;span&gt;USD&lt;/span&gt;&lt;/div&gt;
+                &lt;dl class=&quot;gc-data-list&quot;&gt;&lt;dt&gt;Day range&lt;/dt&gt;&lt;dd&gt;505.87–514.22&lt;/dd&gt;&lt;dt&gt;Previous close&lt;/dt&gt;&lt;dd&gt;508.23&lt;/dd&gt;&lt;dt&gt;Volume&lt;/dt&gt;&lt;dd&gt;13.84M&lt;/dd&gt;&lt;dt&gt;Avg. volume&lt;/dt&gt;&lt;dd&gt;21.07M&lt;/dd&gt;&lt;dt&gt;Market cap&lt;/dt&gt;&lt;dd&gt;3.81T&lt;/dd&gt;&lt;dt&gt;P/E ratio&lt;/dt&gt;&lt;dd&gt;37.2&lt;/dd&gt;&lt;/dl&gt;
+              &lt;/section&gt;
+              &lt;section class=&quot;gc-data-section&quot;&gt;
+                &lt;div class=&quot;gc-data-heading&quot;&gt;&lt;strong&gt;Your position&lt;/strong&gt;&lt;span&gt;Custody account&lt;/span&gt;&lt;/div&gt;
+                &lt;div class=&quot;gc-position&quot;&gt;&lt;div class=&quot;holdings&quot;&gt;&lt;span&gt;18 shares&lt;/span&gt;&lt;span&gt;+USD 84.42&lt;/span&gt;&lt;/div&gt;&lt;p&gt;Average cost USD 508.15 · unrealized P&amp;amp;L +0.93%&lt;/p&gt;&lt;/div&gt;
+              &lt;/section&gt;
+            &lt;/aside&gt;
+          &lt;/div&gt;
+          &lt;form class=&quot;gc-order-form&quot; aria-label=&quot;Order entry&quot; onsubmit=&quot;return false&quot;&gt;
+            &lt;div class=&quot;gc-order-title&quot;&gt;&lt;strong&gt;Order ticket&lt;/strong&gt;&lt;span&gt;Account: GCM-RETAIL-001 · International brokerage&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-action-switch&quot; aria-label=&quot;Order action&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;is-buy&quot; data-action=&quot;buy&quot;&gt;Buy&lt;/button&gt;&lt;button type=&quot;button&quot; data-action=&quot;sell&quot;&gt;Sell&lt;/button&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-form-grid&quot;&gt;
+              &lt;div class=&quot;gc-field&quot;&gt;&lt;label for=&quot;gc-qty&quot;&gt;Quantity&lt;/label&gt;&lt;input id=&quot;gc-qty&quot; value=&quot;10&quot; aria-label=&quot;Quantity&quot; /&gt;&lt;/div&gt;
+              &lt;div class=&quot;gc-field&quot;&gt;&lt;label for=&quot;gc-type&quot;&gt;Order type&lt;/label&gt;&lt;select id=&quot;gc-type&quot;&gt;&lt;option&gt;Limit&lt;/option&gt;&lt;option&gt;Market&lt;/option&gt;&lt;option&gt;Stop&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+              &lt;div class=&quot;gc-field&quot;&gt;&lt;label for=&quot;gc-price&quot;&gt;Limit price&lt;/label&gt;&lt;input id=&quot;gc-price&quot; value=&quot;512.84&quot; aria-label=&quot;Limit price&quot; /&gt;&lt;/div&gt;
+              &lt;div class=&quot;gc-field&quot;&gt;&lt;label for=&quot;gc-tif&quot;&gt;Time in force&lt;/label&gt;&lt;select id=&quot;gc-tif&quot;&gt;&lt;option&gt;Day&lt;/option&gt;&lt;option&gt;GTC&lt;/option&gt;&lt;option&gt;IOC&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;gc-form-foot&quot;&gt;&lt;div class=&quot;gc-estimate&quot;&gt;Estimated order value &lt;strong data-order-value&gt;USD 5,128.40&lt;/strong&gt;&lt;span class=&quot;cash-note&quot;&gt;After order: USD 7,511.82 available&lt;/span&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;gc-preview&quot;&gt;Preview&lt;/button&gt;&lt;button type=&quot;submit&quot; class=&quot;gc-submit&quot; data-submit-label&gt;Review buy order&lt;/button&gt;&lt;/div&gt;
+          &lt;/form&gt;
+        &lt;/section&gt;
+        &lt;aside class=&quot;gc-rail&quot; aria-label=&quot;Account and market sidebar&quot;&gt;
+          &lt;section class=&quot;gc-rail-card&quot;&gt;
+            &lt;div class=&quot;gc-rail-heading&quot;&gt;&lt;span&gt;Cash by currency&lt;/span&gt;&lt;span&gt;Manage cash →&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-cash-line&quot;&gt;&lt;span class=&quot;currency&quot;&gt;MNT&lt;/span&gt;&lt;span class=&quot;amount&quot;&gt;18,405,000 &lt;small&gt;available&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-cash-line&quot;&gt;&lt;span class=&quot;currency&quot;&gt;USD&lt;/span&gt;&lt;span class=&quot;amount&quot;&gt;12,640.22 &lt;small&gt;available&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-cash-line&quot;&gt;&lt;span class=&quot;currency&quot;&gt;EUR&lt;/span&gt;&lt;span class=&quot;amount&quot;&gt;1,220.40 &lt;small&gt;available&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;
+          &lt;/section&gt;
+          &lt;section class=&quot;gc-rail-card&quot;&gt;
+            &lt;div class=&quot;gc-rail-heading&quot;&gt;&lt;span&gt;Custody status&lt;/span&gt;&lt;span&gt;Details →&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-custody-status&quot;&gt;&lt;i&gt;◆&lt;/i&gt;&lt;div&gt;&lt;strong&gt;Assets safeguarded&lt;/strong&gt;&lt;p&gt;All holdings and cash movements are visible in your custody record.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;/section&gt;
+          &lt;section class=&quot;gc-rail-card&quot;&gt;
+            &lt;div class=&quot;gc-rail-heading&quot;&gt;&lt;span&gt;Watchlist · US technology&lt;/span&gt;&lt;span&gt;Edit&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-mover&quot;&gt;&lt;span&gt;&lt;b&gt;NVDA&lt;/b&gt; · NASDAQ&lt;/span&gt;&lt;em&gt;+2.14%&lt;/em&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-mover&quot;&gt;&lt;span&gt;&lt;b&gt;AAPL&lt;/b&gt; · NASDAQ&lt;/span&gt;&lt;em&gt;+0.66%&lt;/em&gt;&lt;/div&gt;
+            &lt;div class=&quot;gc-mover&quot;&gt;&lt;span&gt;&lt;b&gt;GOOGL&lt;/b&gt; · NASDAQ&lt;/span&gt;&lt;em&gt;+0.38%&lt;/em&gt;&lt;/div&gt;
+          &lt;/section&gt;
+        &lt;/aside&gt;
+      &lt;/div&gt;
+      &lt;section class=&quot;gc-bottom gc-trade-only&quot; aria-label=&quot;Orders and reports&quot;&gt;
+        &lt;div class=&quot;gc-tabs&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;is-active&quot; data-tab=&quot;orders&quot;&gt;Open orders &lt;span&gt;2&lt;/span&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; data-tab=&quot;history&quot;&gt;Trade history&lt;/button&gt;&lt;button type=&quot;button&quot; data-tab=&quot;reports&quot;&gt;Reports&lt;/button&gt;&lt;div class=&quot;gc-report-action&quot;&gt;&lt;span data-panel-caption&gt;Orders update throughout the trading session.&lt;/span&gt;&lt;button type=&quot;button&quot; data-export&gt;Download CSV&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;gc-table-wrap&quot; data-table-panel&gt;
+          &lt;table class=&quot;gc-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Instrument&lt;/th&gt;&lt;th&gt;Action&lt;/th&gt;&lt;th&gt;Order type&lt;/th&gt;&lt;th&gt;Quantity&lt;/th&gt;&lt;th&gt;Limit price&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Placed&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody data-table-body&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;AAPL&lt;/strong&gt; &lt;span style=&quot;color:#7e93ad&quot;&gt;NASDAQ · USD&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;gc-status-green&quot;&gt;Buy&lt;/td&gt;&lt;td&gt;Limit&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;USD 226.50&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-tag pending&quot;&gt;Working&lt;/span&gt;&lt;/td&gt;&lt;td&gt;Today, 09:47&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;MSE: GOV-2028&lt;/strong&gt; &lt;span style=&quot;color:#7e93ad&quot;&gt;MNT Bond&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;gc-status-red&quot;&gt;Sell&lt;/td&gt;&lt;td&gt;Limit&lt;/td&gt;&lt;td&gt;MNT 2,000,000&lt;/td&gt;&lt;td&gt;101.35&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;gc-tag pending&quot;&gt;Pending&lt;/span&gt;&lt;/td&gt;&lt;td&gt;Today, 09:12&lt;/td&gt;&lt;/tr&gt;
+          &lt;/tbody&gt;&lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+      &lt;div class=&quot;gc-footnote gc-trade-only&quot;&gt;&lt;span&gt;Illustrative UI only · Market prices and balances are sample data.&lt;/span&gt;&lt;span&gt;&lt;b&gt;Design principle:&lt;/b&gt; international depth without hiding MNT cash, custody status, or local market access.&lt;/span&gt;&lt;/div&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById('golomt-trade-concept');
+      const shell = root.querySelector('.gc-shell');
+      const secondaryTitle = root.querySelector('[data-secondary-title]');
+      const viewTitles = { home: 'Home', watchlist: 'Watchlists', holdings: 'Holdings', reports: 'Reporting' };
+      function setPrimaryView(view) {
+        shell.dataset.activeView = view;
+        root.querySelectorAll('.gc-nav [data-primary-view]').forEach(button =&gt; {
+          if (button.dataset.primaryView === view) button.setAttribute('aria-current', 'page');
+          else button.removeAttribute('aria-current');
+        });
+        secondaryTitle.textContent = viewTitles[view] || '';
+      }
+      root.querySelectorAll('[data-primary-view]').forEach(button =&gt; button.addEventListener('click', () =&gt; setPrimaryView(button.dataset.primaryView)));
+
+      const homeSeries = [
+        { x: 22, y: 182, value: 'MNT 251,420,000', date: '24 Jul 2026' },
+        { x: 98, y: 166, value: 'MNT 255,100,000', date: '28 Jul 2026' },
+        { x: 174, y: 149, value: 'MNT 258,900,000', date: '01 Aug 2026' },
+        { x: 250, y: 157, value: 'MNT 257,140,000', date: '05 Aug 2026' },
+        { x: 326, y: 129, value: 'MNT 263,420,000', date: '09 Aug 2026' },
+        { x: 402, y: 99, value: 'MNT 270,220,000', date: '13 Aug 2026' },
+        { x: 478, y: 76, value: 'MNT 275,360,000', date: '17 Aug 2026' },
+        { x: 554, y: 92, value: 'MNT 271,740,000', date: '21 Aug 2026' },
+        { x: 630, y: 47, value: 'MNT 284,560,410', date: '25 Aug 2026' }
+      ];
+      const homeCanvas = root.querySelector('[data-home-chart-canvas]');
+      const homeHit = root.querySelector('[data-home-chart-hit]');
+      const homeTooltip = root.querySelector('[data-home-tooltip]');
+      const homeGuide = root.querySelector('[data-home-guide]');
+      const homeGuideDot = root.querySelector('[data-home-guide-dot]');
+      function showHomePoint(event) {
+        const bounds = homeCanvas.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+        const point = homeSeries[Math.round(ratio * (homeSeries.length - 1))];
+        homeTooltip.querySelector('b').textContent = point.value;
+        homeTooltip.querySelector('span').textContent = `${point.date} · portfolio value`;
+        const left = Math.max(6, Math.min(bounds.width - 152, (point.x / 660) * bounds.width + 8));
+        homeTooltip.style.left = `${left}px`;
+        homeTooltip.style.right = 'auto';
+        homeTooltip.style.opacity = '1';
+        homeGuide.setAttribute('x1', point.x); homeGuide.setAttribute('x2', point.x);
+        homeGuideDot.setAttribute('cx', point.x); homeGuideDot.setAttribute('cy', point.y);
+      }
+      homeHit.addEventListener('pointermove', showHomePoint);
+      homeHit.addEventListener('pointerleave', () =&gt; { homeTooltip.style.opacity = '0'; });
+
+      const watchlistMenu = root.querySelector('[data-watchlist-menu]');
+      const watchlistTitle = root.querySelector('[data-watchlist-title]');
+      const watchlistCount = root.querySelector('[data-watchlist-count]');
+      const watchlistBody = root.querySelector('[data-watchlist-body]');
+      let newWatchlistNumber = 1;
+      let extraInstrumentNumber = 0;
+      function updateWatchlistCount() {
+        const count = watchlistBody.querySelectorAll('tr').length;
+        watchlistCount.textContent = count;
+        const selectedCount = watchlistMenu.querySelector('.is-active span');
+        if (selectedCount) selectedCount.textContent = count;
+      }
+      function selectWatchlist(button) {
+        watchlistMenu.querySelectorAll('[data-watchlist-name]').forEach(item =&gt; item.classList.toggle('is-active', item === button));
+        watchlistTitle.textContent = button.dataset.watchlistName;
+        updateWatchlistCount();
+      }
+      watchlistMenu.addEventListener('click', event =&gt; {
+        const button = event.target.closest('[data-watchlist-name]');
+        if (button) selectWatchlist(button);
+      });
+      root.querySelectorAll('[data-create-watchlist]').forEach(button =&gt; button.addEventListener('click', () =&gt; {
+        const name = `New watchlist ${newWatchlistNumber++}`;
+        const item = document.createElement('button');
+        item.type = 'button'; item.className = 'gc-watch-menu-item'; item.dataset.watchlistName = name;
+        item.innerHTML = `${name} &lt;span&gt;0&lt;/span&gt;`;
+        watchlistMenu.appendChild(item); selectWatchlist(item);
+      }));
+      root.querySelector('[data-delete-watchlist]').addEventListener('click', () =&gt; {
+        const selected = watchlistMenu.querySelector('.gc-watch-menu-item.is-active');
+        if (selected &amp;&amp; watchlistMenu.querySelectorAll('[data-watchlist-name]').length &gt; 1) {
+          const next = selected.previousElementSibling || selected.nextElementSibling;
+          selected.remove();
+          if (next) selectWatchlist(next);
+        }
+      });
+      root.querySelector('[data-add-symbol]').addEventListener('click', () =&gt; {
+        const additions = [
+          ['TSLA', 'Tesla Inc.', 'USD 346.22', '↑ 1.24%', 'NASDAQ', 'gc-status-green'],
+          ['AMZN', 'Amazon.com Inc.', 'USD 231.48', '↓ 0.31%', 'NASDAQ', 'gc-status-red'],
+          ['MSE A', 'Mongolian equity index', '18,744.11', '↓ 0.18%', 'MSE', 'gc-status-red']
+        ];
+        const item = additions[extraInstrumentNumber++ % additions.length];
+        const row = document.createElement('tr');
+        row.innerHTML = `&lt;td&gt;&lt;strong&gt;${item[0]}&lt;/strong&gt;&lt;br/&gt;&lt;span style=&quot;color:#7d92a4;font-size:10px&quot;&gt;${item[1]}&lt;/span&gt;&lt;/td&gt;&lt;td&gt;${item[2]}&lt;/td&gt;&lt;td class=&quot;${item[5]}&quot;&gt;${item[3]}&lt;/td&gt;&lt;td&gt;${item[4]}&lt;/td&gt;&lt;td&gt;&lt;button type=&quot;button&quot; class=&quot;gc-remove-row&quot; data-remove-watch-row&gt;Remove&lt;/button&gt;&lt;/td&gt;`;
+        watchlistBody.appendChild(row); updateWatchlistCount();
+      });
+      watchlistBody.addEventListener('click', event =&gt; {
+        const button = event.target.closest('[data-remove-watch-row]');
+        if (button) { button.closest('tr').remove(); updateWatchlistCount(); }
+      });
+      updateWatchlistCount();
+
+      const assets = {
+        MSFT: { name: 'Microsoft Corp.', price: 512.84, change: '+4.61   +0.91%', venue: 'NASDAQ · USD · Equity', trend: 'up', base: 512.84 },
+        AAPL: { name: 'Apple Inc.', price: 226.79, change: '+1.48   +0.66%', venue: 'NASDAQ · USD · Equity', trend: 'up', base: 226.79 },
+        NVDA: { name: 'NVIDIA Corp.', price: 178.42, change: '−2.14   −1.19%', venue: 'NASDAQ · USD · Equity', trend: 'down', base: 178.42 }
+      };
+      let selected = 'MSFT';
+      let action = 'buy';
+      const candleSets = {
+        MSFT: [8,12,17,25,31,29,39,44,41,35,39,48,51,46,41,37,34,42,47,52,48,43,39,35,28,31,37,45,49,43,38,32,35,29,25,31,38,43,47,44],
+        AAPL: [52,49,45,46,40,35,31,36,42,38,33,29,34,42,49,53,50,46,51,57,62,58,54,48,43,39,35,31,35,41,46,52,56,51,47,43,38,34,30,27],
+        NVDA: [24,29,31,38,42,48,44,51,57,61,54,49,44,38,32,28,35,41,47,42,37,30,25,21,27,35,40,36,30,26,32,39,45,50,57,61,67,62,58,64]
+      };
+      function drawCandles(symbol) {
+        const group = root.querySelector('[data-candle-group]');
+        const values = candleSets[symbol];
+        let svg = '';
+        values.forEach((v, i) =&gt; {
+          const previous = i ? values[i - 1] : v + 4;
+          const open = 205 - previous * 2.5;
+          const close = 205 - v * 2.5;
+          const high = Math.min(open, close) - (4 + (i % 4));
+          const low = Math.max(open, close) + (4 + ((i + 2) % 4));
+          const color = close &lt;= open ? '#36c995' : '#e6767f';
+          const x = 7 + i * 16.8;
+          svg += `&lt;line x1=&quot;${x + 4}&quot; y1=&quot;${high}&quot; x2=&quot;${x + 4}&quot; y2=&quot;${low}&quot; stroke=&quot;${color}&quot; stroke-width=&quot;1.4&quot;/&gt;&lt;rect x=&quot;${x}&quot; y=&quot;${Math.min(open,close)}&quot; width=&quot;8&quot; height=&quot;${Math.max(3,Math.abs(close-open))}&quot; fill=&quot;${color}&quot;/&gt;`;
+        });
+        group.innerHTML = svg;
+      }
+      function format(value) { return value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+      function updateEstimate() {
+        const quantity = Number(root.querySelector('#gc-qty').value.replace(/,/g, '')) || 0;
+        const price = Number(root.querySelector('#gc-price').value.replace(/,/g, '')) || assets[selected].price;
+        root.querySelector('[data-order-value]').textContent = `USD ${format(quantity * price)}`;
+      }
+      function changeAsset(symbol) {
+        const asset = assets[symbol];
+        selected = symbol;
+        root.querySelector('.gc-symbol-search').value = symbol;
+        root.querySelector('.gc-ticker').textContent = symbol;
+        root.querySelector('.gc-name').textContent = asset.name;
+        root.querySelector('.gc-venue').textContent = asset.venue;
+        root.querySelector('[data-quote-price]').textContent = `USD ${format(asset.price)}`;
+        const change = root.querySelector('[data-quote-change]');
+        change.textContent = asset.change;
+        change.classList.toggle('negative', asset.trend === 'down');
+        root.querySelector('[data-chart-label]').textContent = `${symbol} · 1D · NASDAQ`;
+        root.querySelector('[data-chart-close]').textContent = format(asset.price);
+        root.querySelector('[data-current-label]').textContent = format(asset.price);
+        root.querySelector('#gc-price').value = format(asset.price);
+        drawCandles(symbol); updateEstimate();
+      }
+      root.querySelectorAll('[data-asset]').forEach(button =&gt; button.addEventListener('click', () =&gt; changeAsset(button.dataset.asset)));
+      root.querySelectorAll('[data-action]').forEach(button =&gt; button.addEventListener('click', () =&gt; {
+        action = button.dataset.action;
+        root.querySelectorAll('[data-action]').forEach(item =&gt; item.className = item.dataset.action === action ? `is-${action}` : '');
+        root.querySelector('[data-submit-label]').textContent = `Review ${action} order`;
+      }));
+      root.querySelectorAll('#gc-qty, #gc-price').forEach(input =&gt; input.addEventListener('input', updateEstimate));
+      const panels = {
+        orders: { caption: 'Orders update throughout the trading session.', head: ['Instrument','Action','Order type','Quantity','Limit price','Status','Placed'], rows: [
+          ['&lt;strong&gt;AAPL&lt;/strong&gt; &lt;span style=&quot;color:#7e93ad&quot;&gt;NASDAQ · USD&lt;/span&gt;','&lt;span class=&quot;gc-status-green&quot;&gt;Buy&lt;/span&gt;','Limit','5','USD 226.50','&lt;span class=&quot;gc-tag pending&quot;&gt;Working&lt;/span&gt;','Today, 09:47'],
+          ['&lt;strong&gt;MSE: GOV-2028&lt;/strong&gt; &lt;span style=&quot;color:#7e93ad&quot;&gt;MNT Bond&lt;/span&gt;','&lt;span class=&quot;gc-status-red&quot;&gt;Sell&lt;/span&gt;','Limit','MNT 2,000,000','101.35','&lt;span class=&quot;gc-tag pending&quot;&gt;Pending&lt;/span&gt;','Today, 09:12'] ] },
+        history: { caption: 'Execution history includes domestic and international activity.', head: ['Trade date','Instrument','Action','Quantity','Execution price','Fees','Settlement'], rows: [
+          ['20 Aug 2026','&lt;strong&gt;MSFT&lt;/strong&gt; &lt;span style=&quot;color:#7e93ad&quot;&gt;NASDAQ · USD&lt;/span&gt;','&lt;span class=&quot;gc-status-green&quot;&gt;Buy&lt;/span&gt;','8','USD 508.15','USD 2.10','T+1'],
+          ['19 Aug 2026','&lt;strong&gt;GOV-2028&lt;/strong&gt; &lt;span style=&quot;color:#7e93ad&quot;&gt;MNT Bond&lt;/span&gt;','&lt;span class=&quot;gc-status-green&quot;&gt;Buy&lt;/span&gt;','MNT 5,000,000','100.80','MNT 5,000','T+2'] ] },
+        reports: { caption: 'Choose a report type and date range before download.', head: ['Report','Period','Format','Last generated','Includes','Status','Action'], rows: [
+          ['&lt;strong&gt;Custody statement&lt;/strong&gt;','Jul 2026','PDF','01 Aug 2026','Holdings, cash, movements','&lt;span class=&quot;gc-tag&quot;&gt;Ready&lt;/span&gt;','Download'],
+          ['&lt;strong&gt;Realized &amp; unrealized P&amp;amp;L&lt;/strong&gt;','YTD 2026','XLSX','20 Aug 2026','By instrument &amp; currency','&lt;span class=&quot;gc-tag&quot;&gt;Ready&lt;/span&gt;','Download'] ] }
+      };
+      root.querySelectorAll('[data-tab]').forEach(button =&gt; button.addEventListener('click', () =&gt; {
+        const panel = panels[button.dataset.tab];
+        root.querySelectorAll('[data-tab]').forEach(item =&gt; item.classList.toggle('is-active', item === button));
+        root.querySelector('[data-panel-caption]').textContent = panel.caption;
+        const table = root.querySelector('.gc-table');
+        table.innerHTML = `&lt;thead&gt;&lt;tr&gt;${panel.head.map(h =&gt; `&lt;th&gt;${h}&lt;/th&gt;`).join('')}&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;${panel.rows.map(row =&gt; `&lt;tr&gt;${row.map((cell,i) =&gt; `&lt;td${i === 0 ? '' : ''}&gt;${cell}&lt;/td&gt;`).join('')}&lt;/tr&gt;`).join('')}&lt;/tbody&gt;`;
+      }));
+      drawCandles(selected); updateEstimate();
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+
+&lt;style id=&quot;codex-visualization-document-scrollbar&quot;&gt;html,body{scrollbar-width:none!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important}&lt;/style&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<script>(() => {
+  const frame = document.getElementById("codex-visualization");
+  if (!(frame instanceof HTMLIFrameElement)) {
+    return;
+  }
+  let viewportHeight = globalThis.innerHeight;
+
+  const channel = new MessageChannel();
+  channel.port1.addEventListener("message", (event) => {
+    const data = event.data;
+    if (typeof data !== "object" || data == null) {
+      return;
+    }
+    if (data.type === "height") {
+      const height = data.height;
+      if (
+        typeof height === "number" &&
+        Number.isFinite(height) &&
+        height >= 0 &&
+        height <= 10_000
+      ) {
+        frame.style.height = Math.ceil(height) + "px";
+      }
+      return;
+    }
+    if (data.type === "scroll-to") {
+      const top = data.top;
+      if (
+        typeof top === "number" &&
+        Number.isFinite(top) &&
+        top >= 0 &&
+        globalThis.navigator.userActivation?.isActive === true
+      ) {
+        globalThis.scrollTo({
+          top: Math.ceil(
+            globalThis.scrollY + frame.getBoundingClientRect().top + top,
+          ),
+        });
+      }
+      return;
+    }
+    if (data.type === "open-external") {
+      const rawHref = data.href;
+      if (typeof rawHref !== "string") {
+        return;
+      }
+      let href;
+      try {
+        const url = new URL(rawHref, document.baseURI);
+        if (url.protocol !== "https:") {
+          return;
+        }
+        href = url.href;
+      } catch {
+        return;
+      }
+      if (globalThis.navigator.userActivation?.isActive === true) {
+        const anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.rel = "noopener noreferrer";
+        anchor.target = "_blank";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+      }
+      return;
+    }
+    if (data.type === "follow-up") {
+      const prompt = data.prompt;
+      if (
+        typeof prompt !== "string" ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      const title = data.title;
+      globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+    }
+  });
+  channel.port1.start();
+  const srcdoc = frame.dataset.srcdoc;
+  if (srcdoc == null) {
+    return;
+  }
+  globalThis.addEventListener("resize", () => {
+    const height = Number.parseFloat(frame.style.height);
+    if (!Number.isFinite(height) || height <= viewportHeight) {
+      frame.style.removeProperty("height");
+    }
+    viewportHeight = globalThis.innerHeight;
+    channel.port1.postMessage({ type: "measure" });
+  });
+  frame.addEventListener(
+    "load",
+    () => {
+      frame.contentWindow?.postMessage(
+        { type: "codex-visualization-initialize" },
+        "*",
+        [channel.port2],
+      );
+    },
+    { once: true },
+  );
+  frame.srcdoc = srcdoc;
+  delete frame.dataset.srcdoc;
+})();
+</script>
+</body>
+</html>
